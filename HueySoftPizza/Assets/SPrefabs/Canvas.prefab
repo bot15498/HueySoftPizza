@@ -444,8 +444,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-<<<<<<< HEAD
-=======
 --- !u!114 &114108362361891800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -476,7 +474,6 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
->>>>>>> tempb
 --- !u!114 &114138194504518154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -671,8 +668,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-<<<<<<< HEAD
-=======
       - m_Target: {fileID: 0}
         m_MethodName: PlayPassSFX
         m_Mode: 1
@@ -684,7 +679,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
->>>>>>> tempb
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114296157424283578
@@ -728,8 +722,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 114737886385841830}
         m_MethodName: SellProfile
-<<<<<<< HEAD
-=======
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -741,7 +733,6 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_MethodName: PlaySellSFX
->>>>>>> tempb
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -879,8 +870,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-<<<<<<< HEAD
-=======
       - m_Target: {fileID: 0}
         m_MethodName: 
         m_Mode: 1
@@ -892,7 +881,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
->>>>>>> tempb
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114500377600922250
