@@ -41,8 +41,17 @@ public class Button : MonoBehaviour
     public Text SexAgeField;
     public Text BioField;
     public Text FeedText1;
+    public Text RemainingProfilesField;
+    public Day1 Day1Controller;
+    /*public Day2 Day2Controller;
+    public Day3 Day3Controller;
+    public Day4 Day4Controller;
+    public Day5 Day5Controller;
+    public Day6 Day6Controller;
+    public Day7 Day7Controller;*/
     public int MaxProfileForDay;
     public int PricePerProfile = 1;
+    public int CurrDay;
 
     [SerializeField]
     private string currName;
@@ -140,22 +149,44 @@ public class Button : MonoBehaviour
     {
         playerInfo.currProfileSeen++;
         playerInfo.IncreaseMoney();
-        ShowNewPerson();
+        if(playerInfo.currProfileSeen >= MaxProfileForDay)
+        {
+            EndSelling();
+        }
+        else
+        {
+            ShowNewPerson();
+        }
     }
 
     public void SkipProfile()
     {
         playerInfo.currProfileSeen++;
-        ShowNewPerson();
+        if (playerInfo.currProfileSeen >= MaxProfileForDay)
+        {
+            EndSelling();
+        }
+        else
+        {
+            ShowNewPerson();
+        }
     }
 
     public void EndSelling()
     {
-
+        switch(CurrDay)
+        {
+            case 1:
+                Day1Controller.EndSellingDay();
+                break;
+        }
     }
 
     public void ShowNewPerson()
     {
+        //update profiles remaining just in case
+        RemainingProfilesField.text = (MaxProfileForDay - playerInfo.currProfileSeen).ToString();
+
         //Autogenerate name, sex, and age.
         currName = firstNames[Random.Range(0, firstNames.Count)] + " " + lastNames[Random.Range(0, lastNames.Count - 1)];
         currAge = (Age)Random.Range(0, System.Enum.GetNames(typeof(Age)).Length - 1);
