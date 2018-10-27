@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -66,49 +67,49 @@ public class Button : MonoBehaviour
     {
         string line;
         //first names
-        StreamReader reader = new StreamReader("Assets/Stories/FirstNames.txt");
+        StreamReader reader = new StreamReader("Assets/Stories/FirstNames.txt", Encoding.GetEncoding(1252));
         while ((line = reader.ReadLine()) != null)
         {
             firstNames.Add(line);
         }
         reader.Close();
         //last names
-        reader = new StreamReader("Assets/Stories/LastNames.txt");
+        reader = new StreamReader("Assets/Stories/LastNames.txt", Encoding.GetEncoding(1252));
         while ((line = reader.ReadLine()) != null)
         {
             lastNames.Add(line);
         }
         reader.Close();
         //About me, hobby, anime
-        reader = new StreamReader("Assets/Stories/AboutMes/Hobbies/Anime.txt");
+        reader = new StreamReader("Assets/Stories/AboutMes/Hobbies/Anime.txt", Encoding.GetEncoding(1252));
         while ((line = reader.ReadLine()) != null)
         {
             hobbyAnime.Add(line);
         }
         reader.Close();
         //About me, hobby, fortnite
-        reader = new StreamReader("Assets/Stories/AboutMes/Hobbies/Fortnite.txt");
+        reader = new StreamReader("Assets/Stories/AboutMes/Hobbies/Fortnite.txt", Encoding.GetEncoding(1252));
         while ((line = reader.ReadLine()) != null)
         {
             hobbyFortnite.Add(line);
         }
         reader.Close();
         //About me, hobby, fortnite
-        reader = new StreamReader("Assets/Stories/AboutMes/Hobbies/Dabbing.txt");
+        reader = new StreamReader("Assets/Stories/AboutMes/Hobbies/Dabbing.txt", Encoding.GetEncoding(1252));
         while ((line = reader.ReadLine()) != null)
         {
             hobbyDabbing.Add(line);
         }
         reader.Close();
         //About me, education, high school
-        reader = new StreamReader("Assets/Stories/AboutMes/Education/HighSchool.txt");
+        reader = new StreamReader("Assets/Stories/AboutMes/Education/HighSchool.txt", Encoding.GetEncoding(1252));
         while ((line = reader.ReadLine()) != null)
         {
             edHighSchool.Add(line);
         }
         reader.Close();
         //About me, education, college
-        reader = new StreamReader("Assets/Stories/AboutMes/Education/College.txt");
+        reader = new StreamReader("Assets/Stories/AboutMes/Education/College.txt", Encoding.GetEncoding(1252));
         while ((line = reader.ReadLine()) != null)
         {
             edCollege.Add(line);
