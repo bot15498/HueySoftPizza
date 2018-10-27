@@ -7,12 +7,9 @@ public class PlayerInfo : MonoBehaviour
     public int currMoney;
     public int currProfileSeen;
 
-    [SerializeField]
-    private int taxCostPerDay = 2;
-    [SerializeField]
-    private int foodCostPerDay = 2;
-    [SerializeField]
-    private int houseCostPerDay = 1; 
+    public int taxCostPerDay = 2;
+    public int foodCostPerDay = 2;
+    public int houseCostPerDay = 1; 
 
     // Use this for initialization
     void Start()

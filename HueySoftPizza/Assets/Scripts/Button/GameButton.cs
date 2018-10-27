@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Button : MonoBehaviour
+public class GameButton : MonoBehaviour
 {
 
     public enum Age

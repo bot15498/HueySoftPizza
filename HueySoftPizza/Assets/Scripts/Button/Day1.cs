@@ -9,7 +9,15 @@ public class Day1 : MonoBehaviour
     public List<Image> CostTutorialPages;
     public Canvas TutorialCanvas;
     public Canvas CostCanvas;
+    public Canvas MainGameCanvas;
     public LevelTransition transitionManager;
+    public int taxCostPerDay = 2;
+    public int foodCostPerDay = 2;
+    public int houseCostPerDay = 1;
+    public Text foodCostField;
+    public Text houseCostField;
+    public Text TaxCostField;
+    public Text TotalField;
 
     [SerializeField]
     private int currPage;
@@ -17,10 +25,14 @@ public class Day1 : MonoBehaviour
     private bool inTutorial;
     [SerializeField]
     private bool inCostTutorial;
+    [SerializeField]
+    private bool onCostPage;
+    private PlayerInfo playerInfo;
 
     // Use this for initialization
     void Start()
     {
+        onCostPage = false;
         //load tutorial things
         inTutorial = true;
         inCostTutorial = false;
@@ -41,6 +53,14 @@ public class Day1 : MonoBehaviour
         {
             transitionManager = FindObjectOfType<LevelTransition>();
         }
+        //look for player info
+        if (playerInfo == null)
+        {
+            playerInfo = FindObjectOfType<PlayerInfo>();
+            playerInfo.foodCostPerDay = foodCostPerDay;
+            playerInfo.houseCostPerDay = houseCostPerDay;
+            playerInfo.taxCostPerDay = taxCostPerDay;
+        }
     }
 
     // Update is called once per frame
@@ -57,6 +77,13 @@ public class Day1 : MonoBehaviour
         if (inCostTutorial)
         {
 
+        }
+        if (onCostPage)
+        {
+            TotalField.text = playerInfo.currMoney.ToString();
+            foodCostField.text = playerInfo.foodCostPerDay.ToString();
+            houseCostField.text = playerInfo.houseCostPerDay.ToString();
+            TaxCostField.text = playerInfo.taxCostPerDay.ToString();
         }
     }
 
@@ -98,6 +125,8 @@ public class Day1 : MonoBehaviour
 
     public void EndSellingDay()
     {
+        MainGameCanvas.GetComponent<CanvasGroup>().interactable = false;
+        playerInfo.currProfileSeen = 0;
         StartCoroutine(LoadExpensePage());
     }
 
@@ -116,6 +145,12 @@ public class Day1 : MonoBehaviour
         //load first page in cost tutorial
         CostTutorialPages[0].gameObject.SetActive(true);
         transitionManager.FadeScreenIn();
+        //set data on expense report page
+        onCostPage = true;
+        TotalField.text = playerInfo.currMoney.ToString();
+        foodCostField.text = playerInfo.foodCostPerDay.ToString();
+        houseCostField.text = playerInfo.houseCostPerDay.ToString();
+        TaxCostField.text = playerInfo.taxCostPerDay.ToString();
         while (transitionManager.isTransitioning)
         {
             yield return null;

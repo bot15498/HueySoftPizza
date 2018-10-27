@@ -229,6 +229,7 @@ GameObject:
   - component: {fileID: 114245858839818628}
   - component: {fileID: 114297336944882008}
   - component: {fileID: 114737886385841830}
+  - component: {fileID: 225398981679367662}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1154,8 +1155,10 @@ MonoBehaviour:
   BioField: {fileID: 114595117675753580}
   FeedText1: {fileID: 114500377600922250}
   RemainingProfilesField: {fileID: 114053701501455090}
+  Day1Controller: {fileID: 0}
   MaxProfileForDay: 4
   PricePerProfile: 1
+  CurrDay: 0
   currName: 
   currSex: 0
   currAge: 0
@@ -2054,3 +2057,14 @@ RectTransform:
   m_AnchoredPosition: {x: 142.5, y: 0}
   m_SizeDelta: {x: 124.75, y: 45.64}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &225398981679367662
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1537314702121062}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
