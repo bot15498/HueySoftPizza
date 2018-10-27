@@ -42,7 +42,7 @@ public class Button : MonoBehaviour
     public Text BioField;
     public Text FeedText1;
     public int MaxProfileForDay;
-    public int PricePerProfile;
+    public int PricePerProfile = 1;
 
     [SerializeField]
     private string currName;
