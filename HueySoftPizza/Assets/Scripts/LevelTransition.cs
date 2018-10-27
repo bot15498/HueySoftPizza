@@ -1,4 +1,6 @@
 ﻿using UnityEngine; // MonoBehavior
+using System.Collections; // IEnumerator
+using UnityEngine.UI; // Image
 
 public class LevelTransition : MonoBehaviour
 {
@@ -8,16 +10,14 @@ public class LevelTransition : MonoBehaviour
   const float maxTransparency = 0.0f; // 0.0 = completely invisible
 
   // A black mask over the screen. Alpha is interpolated to fade the screen in and out.
-  GameObject screenFadeMask;
-  
+  public GameObject screenFadeMask;
 
   /// <summary>
-  /// Initializes variables
+  /// Fades in screen on startup
   /// </summary>
-  void Start ()
+  void Awake()
   {
-    // Fetch a pointer to the fade mask
-    GameObject screenFadeMask = GameObject.Find("screenFadeMask");
+    FadeScreenIn();
   }
 
 
@@ -27,9 +27,9 @@ public class LevelTransition : MonoBehaviour
   public void FadeScreenOut()
   {
     // Reset the alpha of screenFadeMask
-    Color tempColorHolder = GetComponent<SpriteRenderer>().color;
+    Color tempColorHolder = screenFadeMask.GetComponent<Image>().color;
     tempColorHolder.a = 0f;
-    screenFadeMask.GetComponent<SpriteRenderer>().color = tempColorHolder;
+    screenFadeMask.GetComponent<Image>().color = tempColorHolder;
 
     // Fade out the screen
     StartCoroutine(FadeOut(screenFadeMask));
@@ -41,18 +41,18 @@ public class LevelTransition : MonoBehaviour
   /// </summary>
   /// <param name="fadedObject"></param>
   /// <returns></returns>
-  IEnumerator FadeOut (GameObject fadedObject)
+  IEnumerator FadeOut(GameObject fadedObject)
   {
     // Decrement alpha over time so that it reaches maxTransparency after fadeTime
     for (float f = 0; f <= fadeTime; f += Time.deltaTime)
     {
       // Find the percent to interpolate between max transparency and min transparency
-      float interpolationValue = (f / fadeTime);
+      float interpolationValue = (1 - (f / fadeTime));
 
       // Use a temporary Color object to set the new Color
-      Color tempColorHolder = fadedObject.GetComponent<SpriteRenderer>().color;
+      Color tempColorHolder = fadedObject.GetComponent<Image>().color;
       tempColorHolder.a = Mathf.Lerp(minTransparency, maxTransparency, interpolationValue);
-      fadedObject.GetComponent<SpriteRenderer>().color = tempColorHolder;
+      fadedObject.GetComponent<Image>().color = tempColorHolder;
 
       // Advance to next frame
       yield return null;
@@ -66,9 +66,9 @@ public class LevelTransition : MonoBehaviour
   public void FadeScreenIn()
   {
     // Reset the alpha of screenFadeMask
-    Color tempColorHolder = GetComponent<SpriteRenderer>().color;
+    Color tempColorHolder = screenFadeMask.GetComponent<Image>().color;
     tempColorHolder.a = 1f;
-    screenFadeMask.GetComponent<SpriteRenderer>().color = tempColorHolder;
+    screenFadeMask.GetComponent<Image>().color = tempColorHolder;
 
     // Fade out the screen
     StartCoroutine(FadeIn(screenFadeMask));
@@ -86,12 +86,12 @@ public class LevelTransition : MonoBehaviour
     for (float f = 0; f <= fadeTime; f += Time.deltaTime)
     {
       // Find the percent to interpolate between max transparency and min transparency
-      float interpolationValue = (1 - (f / fadeTime));
+      float interpolationValue = (f / fadeTime);
 
       // Use a temporary Color object to set the new Color
-      Color tempColorHolder = fadedObject.GetComponent<SpriteRenderer>().color;
+      Color tempColorHolder = fadedObject.GetComponent<Image>().color;
       tempColorHolder.a = Mathf.Lerp(minTransparency, maxTransparency, interpolationValue);
-      fadedObject.GetComponent<SpriteRenderer>().color = tempColorHolder;
+      fadedObject.GetComponent<Image>().color = tempColorHolder;
 
       // Advance to next frame
       yield return null;
