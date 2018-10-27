@@ -41,6 +41,8 @@ public class Button : MonoBehaviour
     public Text SexAgeField;
     public Text BioField;
     public Text FeedText1;
+    public int MaxProfileForDay;
+    public int PricePerProfile;
 
     [SerializeField]
     private string currName;
@@ -52,6 +54,8 @@ public class Button : MonoBehaviour
     private Hobbies currHobby;
     [SerializeField]
     private Education currEd;
+
+    private int currProfileSeen = 0;
 
     private List<string> firstNames = new List<string>();
     private List<string> lastNames = new List<string>();
@@ -120,6 +124,23 @@ public class Button : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+
+    }
+
+    public void SellProfile()
+    {
+        currProfileSeen++;
+        ShowNewPerson();
+    }
+
+    public void SkipProfile()
+    {
+        currProfileSeen++;
+        ShowNewPerson();
+    }
+
+    public void EndSelling()
     {
 
     }
