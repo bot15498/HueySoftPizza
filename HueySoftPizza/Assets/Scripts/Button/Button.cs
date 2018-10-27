@@ -42,7 +42,7 @@ public class Button : MonoBehaviour
     public Text BioField;
     public Text FeedText1;
     public int MaxProfileForDay;
-    public int PricePerProfile;
+    public int PricePerProfile = 1;
 
     [SerializeField]
     private string currName;
@@ -148,11 +148,11 @@ public class Button : MonoBehaviour
     public void ShowNewPerson()
     {
         //Autogenerate name, sex, and age.
-        currName = firstNames[Random.Range(0, firstNames.Count - 1)] + " " + lastNames[Random.Range(0, lastNames.Count - 1)];
+        currName = firstNames[Random.Range(0, firstNames.Count)] + " " + lastNames[Random.Range(0, lastNames.Count - 1)];
         currAge = (Age)Random.Range(0, System.Enum.GetNames(typeof(Age)).Length - 1);
         currSex = (Sex)Random.Range(0, 2);
-        currHobby = (Hobbies)Random.Range(0, System.Enum.GetNames(typeof(Hobbies)).Length - 1);
-        currEd = (Education)Random.Range(0, System.Enum.GetNames(typeof(Education)).Length - 1);
+        currHobby = (Hobbies)Random.Range(0, System.Enum.GetNames(typeof(Hobbies)).Length );
+        currEd = (Education)Random.Range(0, System.Enum.GetNames(typeof(Education)).Length);
 
         //Update text on screen
         NameField.text = currName;
@@ -160,23 +160,23 @@ public class Button : MonoBehaviour
             : currAge == Age.Adult ? Random.Range(26, 49)
             : Random.Range(50, 98);
         SexAgeField.text = currSex + ", " + actualAge;
-        if(Random.Range(0,1) == 0)
+        if(Random.Range(0,2) == 0)
         {
-            FeedText1.text = currHobby == Hobbies.Anime ? hobbyAnime[Random.Range(0, hobbyAnime.Count - 1)]
-                : currHobby == Hobbies.Fortnite ? hobbyFortnite[Random.Range(0, hobbyFortnite.Count - 1)]
-                : hobbyDabbing[Random.Range(0, hobbyDabbing.Count - 1)];
+            FeedText1.text = currHobby == Hobbies.Anime ? hobbyAnime[Random.Range(0, hobbyAnime.Count)]
+                : currHobby == Hobbies.Fortnite ? hobbyFortnite[Random.Range(0, hobbyFortnite.Count)]
+                : hobbyDabbing[Random.Range(0, hobbyDabbing.Count)];
             FeedText1.text += "\n\n";
-            FeedText1.text += currEd == Education.HighSchool ? edHighSchool[Random.Range(0, edHighSchool.Count - 1)]
-                : edCollege[Random.Range(0, edCollege.Count - 1)];
+            FeedText1.text += currEd == Education.HighSchool ? edHighSchool[Random.Range(0, edHighSchool.Count)]
+                : edCollege[Random.Range(0, edCollege.Count)];
         }
         else
         {
-            FeedText1.text = currEd == Education.HighSchool ? edHighSchool[Random.Range(0, edHighSchool.Count - 1)]
-                : edCollege[Random.Range(0, edCollege.Count - 1)];
+            FeedText1.text = currEd == Education.HighSchool ? edHighSchool[Random.Range(0, edHighSchool.Count)]
+                : edCollege[Random.Range(0, edCollege.Count)];
             FeedText1.text += "\n\n";
-            FeedText1.text += currHobby == Hobbies.Anime ? hobbyAnime[Random.Range(0, hobbyAnime.Count - 1)]
-                : currHobby == Hobbies.Fortnite ? hobbyFortnite[Random.Range(0, hobbyFortnite.Count - 1)]
-                : hobbyDabbing[Random.Range(0, hobbyDabbing.Count - 1)];
+            FeedText1.text += currHobby == Hobbies.Anime ? hobbyAnime[Random.Range(0, hobbyAnime.Count)]
+                : currHobby == Hobbies.Fortnite ? hobbyFortnite[Random.Range(0, hobbyFortnite.Count)]
+                : hobbyDabbing[Random.Range(0, hobbyDabbing.Count)];
         }
     }
 }
