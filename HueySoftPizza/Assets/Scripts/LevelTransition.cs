@@ -1,4 +1,5 @@
 ﻿using UnityEngine; // MonoBehavior
+using UnityEngine.SceneManagement; // SceneManager
 using System.Collections; // IEnumerator
 using UnityEngine.UI; // Image
 
@@ -8,6 +9,9 @@ public class LevelTransition : MonoBehaviour
   const float fadeTime = 1.0f;
   const float minTransparency = 1.0f; // 1.0 = completely visible
   const float maxTransparency = 0.0f; // 0.0 = completely invisible
+
+  // Optional action to take after fading out
+  public enum PostFadeAction { Nothing, StartGame, QuitGame };
 
   // A black mask over the screen. Alpha is interpolated to fade the screen in and out.
   public GameObject screenFadeMask;
@@ -22,7 +26,7 @@ public class LevelTransition : MonoBehaviour
 
 
   /// <summary>
-  /// Fades the screen out over fadeTime
+  /// Fades the screen out over fadeTime.
   /// </summary>
   public void FadeScreenOut()
   {
@@ -31,17 +35,50 @@ public class LevelTransition : MonoBehaviour
     tempColorHolder.a = 0f;
     screenFadeMask.GetComponent<Image>().color = tempColorHolder;
 
-    // Fade out the screen
+    // Fade out the screen.
     StartCoroutine(FadeOut(screenFadeMask));
   }
 
 
   /// <summary>
-  /// Enumerator used in FadeScreenOut()
+  /// Fades the screen out over fadeTime, then starts the game.
   /// </summary>
-  /// <param name="fadedObject"></param>
+  public void StartGame()
+  {
+    // Reset the alpha of screenFadeMask
+    Color tempColorHolder = screenFadeMask.GetComponent<Image>().color;
+    tempColorHolder.a = 0f;
+    screenFadeMask.GetComponent<Image>().color = tempColorHolder;
+
+    // Fade out the screen, then start the game.
+    StartCoroutine(FadeOut(screenFadeMask, PostFadeAction.StartGame));
+  }
+
+
+  /// <summary>
+  /// Fades the screen out over fadeTime, then quits the game.
+  /// </summary>
+  public void QuitGame()
+  {
+    // Reset the alpha of screenFadeMask
+    Color tempColorHolder = screenFadeMask.GetComponent<Image>().color;
+    tempColorHolder.a = 0f;
+    screenFadeMask.GetComponent<Image>().color = tempColorHolder;
+
+    // Fade out the screen, then start the game.
+    StartCoroutine(FadeOut(screenFadeMask, PostFadeAction.QuitGame));
+  }
+
+
+  /// <summary>
+  /// Fades an object from minTransparency to maxTransparency
+  /// Starts the game after fading out if action == StartGame.
+  /// Quits the game after fading out if action == QuitGame.
+  /// </summary>
+  /// <param name="fadedObject">The object to fade out</param>
+  /// <param name="action">The action to take after fading out.</param>
   /// <returns></returns>
-  IEnumerator FadeOut(GameObject fadedObject)
+  IEnumerator FadeOut(GameObject fadedObject, PostFadeAction action = PostFadeAction.Nothing)
   {
     // Decrement alpha over time so that it reaches maxTransparency after fadeTime
     for (float f = 0; f <= fadeTime; f += Time.deltaTime)
@@ -56,6 +93,24 @@ public class LevelTransition : MonoBehaviour
 
       // Advance to next frame
       yield return null;
+    }
+
+    // Start the game if screen is finished fading out and startGame == true
+    if (action == PostFadeAction.StartGame)
+    {
+      SceneManager.LoadScene("Game");
+      yield break;
+    }
+
+    else if (action == PostFadeAction.QuitGame)
+    {
+      Application.Quit();
+      yield break;
+    }
+
+    else
+    {
+      yield break;
     }
   }
 
@@ -76,9 +131,9 @@ public class LevelTransition : MonoBehaviour
 
 
   /// <summary>
-  /// Enumerator used in FadeScreenIn()
+  /// Fades an object in from maxTransparency to minTransparency
   /// </summary>
-  /// <param name="fadedObject"></param>
+  /// <param name="fadedObject">The object to fade in</param>
   /// <returns></returns>
   IEnumerator FadeIn(GameObject fadedObject)
   {
