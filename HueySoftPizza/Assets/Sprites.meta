@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: af7f382e156464d459a96856f00f6f72
+=======
+guid: b2d729b9140f2f64bbc02c27bc6081bd
+>>>>>>> level-transitions
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
