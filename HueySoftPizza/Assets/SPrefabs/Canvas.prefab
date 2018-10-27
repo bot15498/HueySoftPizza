@@ -298,6 +298,7 @@ GameObject:
   - component: {fileID: 222407450238600552}
   - component: {fileID: 114916828951451426}
   - component: {fileID: 114296157424283578}
+  - component: {fileID: 114108362361891800}
   m_Layer: 5
   m_Name: Sell
   m_TagString: Untagged

@@ -55,7 +55,8 @@ public class Button : MonoBehaviour
     [SerializeField]
     private Education currEd;
 
-    private int currProfileSeen = 0;
+    //private int currProfileSeen = 0;
+    private PlayerInfo playerInfo;
 
     private List<string> firstNames = new List<string>();
     private List<string> lastNames = new List<string>();
@@ -119,24 +120,32 @@ public class Button : MonoBehaviour
             edCollege.Add(line);
         }
         reader.Close();
+        if(playerInfo == null)
+        {
+            playerInfo = FindObjectOfType<PlayerInfo>();
+        }
         ShowNewPerson();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (playerInfo == null)
+        {
+            playerInfo = FindObjectOfType<PlayerInfo>();
+        }
     }
 
     public void SellProfile()
     {
-        currProfileSeen++;
+        playerInfo.currProfileSeen++;
+        playerInfo.IncreaseMoney();
         ShowNewPerson();
     }
 
     public void SkipProfile()
     {
-        currProfileSeen++;
+        playerInfo.currProfileSeen++;
         ShowNewPerson();
     }
 
