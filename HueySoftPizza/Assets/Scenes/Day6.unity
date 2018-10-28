@@ -1760,7 +1760,7 @@ Prefab:
     - target: {fileID: 114794466377043902, guid: c1b84fffc2cacf9498b183f1cf16c813,
         type: 2}
       propertyPath: CurrDay
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114794466377043902, guid: c1b84fffc2cacf9498b183f1cf16c813,
         type: 2}
@@ -1770,7 +1770,7 @@ Prefab:
     - target: {fileID: 114794466377043902, guid: c1b84fffc2cacf9498b183f1cf16c813,
         type: 2}
       propertyPath: MaxProfileForDay
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1b84fffc2cacf9498b183f1cf16c813, type: 2}
@@ -2394,14 +2394,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63cf6d3f0c34bf45aeb0641568696cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TutorialPages:
-  - {fileID: 1628662389}
+  TutorialPages: []
   TutorialCanvas: {fileID: 1427972496}
   CostCanvas: {fileID: 746538081}
   MainGameCanvas: {fileID: 257968409}
   transitionManager: {fileID: 0}
   taxCostPerDay: 2
-  foodCostPerDay: 4
+  foodCostPerDay: 2
   houseCostPerDay: 2
   foodCostField: {fileID: 746538083}
   houseCostField: {fileID: 746538082}

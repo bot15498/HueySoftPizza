@@ -192,7 +192,10 @@ public class GameButton : MonoBehaviour
   public void SellProfile()
   {
     playerInfo.currProfileSeen++;
-    playerInfo.IncreaseMoney();
+    if (CurrDay != 6)
+    {
+      playerInfo.IncreaseMoney();
+    }
     if (playerInfo.currProfileSeen >= MaxProfileForDay)
     {
       TotalCredits.text = (playerInfo.currMoney + playerInfo.currProfitForDay).ToString();
@@ -238,19 +241,48 @@ public class GameButton : MonoBehaviour
       case 4:
         Day2Controller.EndSellingDay();
         break;
+      case 5:
+        Day2Controller.EndSellingDay();
+        break;
+      case 6:
+        Day2Controller.EndSellingDay();
+        break;
     }
   }
 
   public void HueyCheck()
   {
-    if(CurrDay == 6 && currFirstName == "Huey" && currLastName == "Fields")
+    if (CurrDay == 6 && currFirstName == "Huey" && currLastName == "Fields")
     {
       playerInfo.noSellHuey = true;
       //payout
-      for(int i=0;i<10;i++)
+      for (int i = 0; i < 10; i++)
       {
         playerInfo.IncreaseMoney();
       }
+    }
+    else if (CurrDay == 6)
+    {
+      playerInfo.IncreaseIncorrect();
+    }
+    switch (playerInfo.incorrectCount)
+    {
+      case 1:
+        ShowRecordingWarning();
+        break;
+      case 2:
+        // all profits are taken away and no more profits for the day
+        playerInfo.recordedViolation = true;
+        playerInfo.currProfitForDay = 0;
+        ShowRecordingWarning2();
+        break;
+      case 3:
+        // game over
+        playerInfo.currState = EndStates.TooManyStrikes;
+        StartCoroutine(transitionManager.TransitionScene("BadEnd"));
+        break;
+      default:
+        break;
     }
   }
 
@@ -292,10 +324,10 @@ public class GameButton : MonoBehaviour
             default:
               break;
           }
-          
+
         }
 
-        
+
         break;
       default:
         break;
