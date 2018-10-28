@@ -96,7 +96,7 @@ public class GameButton : MonoBehaviour
   private List<string> hobbyDabbing = new List<string>();
   private List<string> edHighSchool = new List<string>();
   private List<string> edCollege = new List<string>();
-  private List<Sprite> profilePictures = new List<Sprite>();
+  public List<Sprite> profilePictures = new List<Sprite>();
   private List<string> recentActivities = new List<string>();
   //The list of generated profiles is now done at the start.
   //each profiles is [age, sex, hobby, education]
@@ -577,14 +577,14 @@ public class GameButton : MonoBehaviour
 
   public void LoadProfilePictures()
   {
-    DirectoryInfo dir = new DirectoryInfo("Assets/Sprites/ProfilePictures/");
-    foreach (FileInfo file in dir.GetFiles("*.png"))
-    {
-      Texture2D tex = new Texture2D(1, 1, TextureFormat.ARGB32, false);
-      tex.LoadImage(File.ReadAllBytes("Assets/Sprites/ProfilePictures/" + file.Name));
-      Sprite sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(.5f, .5f));
-      profilePictures.Add(sprite);
-    }
+ // DirectoryInfo dir = new DirectoryInfo("Assets/Sprites/ProfilePictures/");
+ // foreach (FileInfo file in dir.GetFiles("*.png"))
+ // {
+ //   Texture2D tex = new Texture2D(1, 1, TextureFormat.ARGB32, false);
+ //   tex.LoadImage(File.ReadAllBytes("Assets/Sprites/ProfilePictures/" + file.Name));
+ //   Sprite sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(.5f, .5f));
+ //   profilePictures.Add(sprite);
+ // }
   }
 
   public void GenerateProfiles()
