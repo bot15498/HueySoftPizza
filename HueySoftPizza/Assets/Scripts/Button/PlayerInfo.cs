@@ -19,6 +19,7 @@ public class PlayerInfo : MonoBehaviour
   public bool paidHouse;
   public bool paidMedicine;
   public bool hasDatabreach;
+  public bool noSellHuey;
   public int incorrectCount = 0;
   public int dataBreachCount = 0;
   public EndStates currState;
@@ -49,6 +50,7 @@ public class PlayerInfo : MonoBehaviour
     paidTax = false;
     paidHouse = false;
     paidMedicine = false;
+    noSellHuey = false;
   }
 
   void Update()
@@ -115,6 +117,7 @@ public class PlayerInfo : MonoBehaviour
     paidHouse = false;
     paidMedicine = false;
     hasDatabreach = false;
+    noSellHuey = false;
     currProfitForDay = 0;
     incorrectCount = 0;
   }
@@ -129,6 +132,7 @@ public class PlayerInfo : MonoBehaviour
     paidHouse = false;
     paidMedicine = false;
     hasDatabreach = false;
+    noSellHuey = false;
     dataBreachCount = 0;
     currProfitForDay = 0;
     incorrectCount = 0;

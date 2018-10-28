@@ -205,10 +205,14 @@ public class GameButton : MonoBehaviour
     playerInfo.currProfileSeen++;
     if (playerInfo.currProfileSeen >= MaxProfileForDay)
     {
+      HueyCheck();
+      TotalCredits.text = (playerInfo.currMoney + playerInfo.currProfitForDay).ToString();
       EndSelling();
     }
     else
     {
+      HueyCheck();
+      TotalCredits.text = (playerInfo.currMoney + playerInfo.currProfitForDay).ToString();
       ShowNewPerson();
     }
   }
@@ -226,6 +230,19 @@ public class GameButton : MonoBehaviour
       case 4:
         Day2Controller.EndSellingDay();
         break;
+    }
+  }
+
+  public void HueyCheck()
+  {
+    if(CurrDay == 6 && currFirstName == "Huey" && currLastName == "Fields")
+    {
+      playerInfo.noSellHuey = true;
+      //payout
+      for(int i=0;i<10;i++)
+      {
+        playerInfo.IncreaseMoney();
+      }
     }
   }
 
@@ -250,6 +267,8 @@ public class GameButton : MonoBehaviour
           //Also add another credit because it's double day
           playerInfo.IncreaseMoney();
         }
+        break;
+      case 6:
         break;
     }
   }
