@@ -2442,8 +2442,8 @@ MonoBehaviour:
   inTutorial: 0
   onCostPage: 0
   todaysNewspaper: Assets/Stories/Newspapers/Day2News.txt
-  leftColumnImage: {fileID: 21300000, guid: baa7fd6e3964e734f92b18c9d9f65398, type: 3}
-  rightColumnImage: {fileID: 21300000, guid: 29fe9eee782375949bcfb0263d5e93d0, type: 3}
+  leftColumnImage: {fileID: 21300000, guid: e9d68b020c193e342b27062c7a2ce49d, type: 3}
+  rightColumnImage: {fileID: 21300000, guid: e9d68b020c193e342b27062c7a2ce49d, type: 3}
   todaysEmail: Assets/Stories/Emails/Day2Email.txt
   senderImage: {fileID: 21300000, guid: 29fe9eee782375949bcfb0263d5e93d0, type: 3}
   newspaperCanvas: {fileID: 1716758539}

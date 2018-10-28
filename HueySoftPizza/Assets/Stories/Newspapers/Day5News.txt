@@ -1,0 +1,7 @@
+Daily Weather
+Everythings alright!
+SHORT
+The sky is green. The grass is blue. Everything's alright. Don't panic.
+ 
+LONG
+ 
