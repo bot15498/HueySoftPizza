@@ -62,35 +62,23 @@ public class PlayerInfo : MonoBehaviour
 
   public bool PayTax()
   {
-    if (currMoney >= taxCostPerDay)
-    {
-      currMoney -= taxCostPerDay;
-      paidTax = true;
-      return true;
-    }
-    return false;
+    currMoney -= taxCostPerDay;
+    paidTax = true;
+    return true;
   }
 
   public bool PayHouse()
   {
-    if (currMoney >= houseCostPerDay)
-    {
-      currMoney -= houseCostPerDay;
-      paidHouse = true;
-      return true;
-    }
-    return false;
+    currMoney -= houseCostPerDay;
+    paidHouse = true;
+    return true;
   }
 
   public bool PayFood()
   {
-    if (currMoney >= foodCostPerDay)
-    {
-      currMoney -= foodCostPerDay;
-      paidFood = true;
-      return true;
-    }
-    return false;
+    currMoney -= foodCostPerDay;
+    paidFood = true;
+    return true;
   }
 
   public void IncreaseMoney()
@@ -102,7 +90,7 @@ public class PlayerInfo : MonoBehaviour
   public void IncreaseIncorrect()
   {
     incorrectCount++;
-    if(incorrectCount >= 3)
+    if (incorrectCount >= 3)
     {
       hasDatabreach = true;
       dataBreachCount++;
