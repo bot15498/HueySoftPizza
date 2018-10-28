@@ -378,7 +378,7 @@ public class Day2 : MonoBehaviour
             StartCoroutine(transitionManager.TransitionScene("Day7"));
             break;
           case 7:
-            StartCoroutine(transitionManager.TransitionScene("MainMenu"));
+            StartCoroutine(transitionManager.TransitionScene("End"));
             break;
           default:
             StartCoroutine(transitionManager.TransitionScene("MainMenu"));
