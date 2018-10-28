@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInfo : MonoBehaviour
 {
-  public int currMoney;
+  public int currMoney = 10;
   public int currProfileSeen;
 
   public int taxCostPerDay = 2;

@@ -48,6 +48,7 @@ public class GameButton : MonoBehaviour
   public Text BioField;
   public Text FeedText1;
   public Text RemainingProfilesField;
+  public Text TotalCredits;
   public Day1 Day1Controller;
   /*public Day2 Day2Controller;
   public Day3 Day3Controller;
@@ -211,6 +212,7 @@ public class GameButton : MonoBehaviour
   {
     //update profiles remaining just in case
     RemainingProfilesField.text = (MaxProfileForDay - playerInfo.currProfileSeen).ToString();
+    TotalCredits.text = playerInfo.currMoney.ToString();
 
     //Autogenerate name, sex, age, hobby, education, and recent activities.
     currFirstName = firstNames[Random.Range(0, firstNames.Count)];
