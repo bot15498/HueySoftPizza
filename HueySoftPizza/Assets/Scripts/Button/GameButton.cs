@@ -74,6 +74,7 @@ public class GameButton : MonoBehaviour
   private List<string> hobbyDabbing = new List<string>();
   private List<string> edHighSchool = new List<string>();
   private List<string> edCollege = new List<string>();
+  private List<Sprite> profilePictures = new List<Sprite>();
 
 
   // Use this for initialization
@@ -129,6 +130,8 @@ public class GameButton : MonoBehaviour
       edCollege.Add(line);
     }
     reader.Close();
+    //load profil pictures
+    LoadProfilePictures();
     if (playerInfo == null)
     {
       playerInfo = FindObjectOfType<PlayerInfo>();
@@ -200,6 +203,9 @@ public class GameButton : MonoBehaviour
         : currAge == Age.Adult ? Random.Range(26, 49)
         : Random.Range(50, 98);
     SexAgeField.text = currSex + ", " + actualAge;
+    //selecting profile picture
+    Portrait.sprite = profilePictures[Random.Range(0,profilePictures.Count)];
+    //Choosing text in feed
     if (Random.Range(0, 2) == 0)
     {
       FeedText1.text = currHobby == Hobbies.Anime ? hobbyAnime[Random.Range(0, hobbyAnime.Count)]
@@ -222,6 +228,13 @@ public class GameButton : MonoBehaviour
 
   public void LoadProfilePictures()
   {
-
+    DirectoryInfo dir = new DirectoryInfo("Assets/Sprites/ProfilePictures/");
+    foreach(FileInfo file in dir.GetFiles("*.png"))
+    {
+      Texture2D tex = new Texture2D(1, 1, TextureFormat.ARGB32, false);
+      tex.LoadImage(File.ReadAllBytes("Assets/Sprites/ProfilePictures/" + file.Name));
+      Sprite sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(.5f, .5f));
+      profilePictures.Add(sprite);      
+    }
   }
 }
