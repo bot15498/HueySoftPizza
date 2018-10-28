@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
   public AudioClip passSFX;
   public AudioClip levelMusic;
   public AudioClip mainMenuMusic;
+  public AudioClip clickSFX;
 
   // Use this for initialization
   void Start()
@@ -47,17 +48,17 @@ public class AudioManager : MonoBehaviour
 
   public void PlayButtonHoverSFX()
   {
-    Play(buttonHoverSFX, -6f);
+    Play(buttonHoverSFX, -10f);
   }
 
   public void PlaySellSFX()
   {
-    Play(sellSFX, -6f);
+    Play(sellSFX, 0f);
   }
 
   public void PlayPassSFX()
   {
-    Play(passSFX, -6f);
+    Play(passSFX, -2f);
   }
 
   public void PlayLevelMusic()
@@ -68,5 +69,10 @@ public class AudioManager : MonoBehaviour
   public void PlayMenuMusic()
   {
     Play(mainMenuMusic, -18f, true);
+  }
+
+  public void PlayClickSFX()
+  {
+    Play(clickSFX, -3f);
   }
 }
