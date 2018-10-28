@@ -1951,7 +1951,7 @@ Prefab:
     - target: {fileID: 114794466377043902, guid: c1b84fffc2cacf9498b183f1cf16c813,
         type: 2}
       propertyPath: MaxProfileForDay
-      value: 30
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1b84fffc2cacf9498b183f1cf16c813, type: 2}
