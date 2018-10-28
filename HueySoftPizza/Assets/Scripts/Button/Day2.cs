@@ -4,10 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 
-public class Day1 : MonoBehaviour
+public class Day2 : MonoBehaviour
 {
   public List<Image> TutorialPages;
-  public List<Image> CostTutorialPages;
   public Canvas TutorialCanvas;
   public Canvas CostCanvas;
   public Canvas MainGameCanvas;
@@ -24,8 +23,6 @@ public class Day1 : MonoBehaviour
   private int currPage;
   [SerializeField]
   private bool inTutorial;
-  [SerializeField]
-  private bool inCostTutorial;
   [SerializeField]
   private bool onCostPage;
   private PlayerInfo playerInfo;
@@ -80,19 +77,12 @@ public class Day1 : MonoBehaviour
     onCostPage = false;
     //load tutorial things
     inTutorial = true;
-    inCostTutorial = false;
     foreach (Image i in TutorialPages)
     {
       i.gameObject.SetActive(false);
     }
-    TutorialPages[0].gameObject.SetActive(true);
-    currPage = 0;
-    //set cost tutorial pages to hide
-    foreach (Image i in CostTutorialPages)
-    {
-      i.gameObject.SetActive(false);
-    }
-    CostCanvas.gameObject.SetActive(false);
+    //TutorialPages[0].gameObject.SetActive(true);
+    //currPage = 0;
     //look for transition manager
     if (transitionManager == null)
     {
@@ -238,13 +228,10 @@ public class Day1 : MonoBehaviour
     {
       playerInfo = FindObjectOfType<PlayerInfo>();
     }
-    if (inTutorial)
+    //Play the tutorial
+    if (inTutorial && currentGameState == GameState.Game)
     {
-
-    }
-    if (inCostTutorial)
-    {
-
+      TutorialPages[currPage].gameObject.SetActive(true);
     }
     if (onCostPage)
     {
@@ -303,24 +290,6 @@ public class Day1 : MonoBehaviour
     }
   }
 
-  public void AdvanceCostTutorial()
-  {
-    if (inCostTutorial)
-    {
-      CostTutorialPages[currPage].gameObject.SetActive(false);
-      currPage++;
-      if (currPage >= CostTutorialPages.Count)
-      {
-        inCostTutorial = false;
-        TutorialCanvas.gameObject.SetActive(false);
-      }
-      else
-      {
-        CostTutorialPages[currPage].gameObject.SetActive(true);
-      }
-    }
-  }
-
   public void EndSellingDay()
   {
     MainGameCanvas.GetComponent<CanvasGroup>().interactable = false;
@@ -371,7 +340,7 @@ public class Day1 : MonoBehaviour
         break;
       case EndStates.None:
         //TODO: Change this
-        StartCoroutine(transitionManager.TransitionScene("Day2"));
+        StartCoroutine(transitionManager.TransitionScene("MainMenu"));
         break;
     }
   }
@@ -383,13 +352,9 @@ public class Day1 : MonoBehaviour
     {
       yield return null;
     }
-    inCostTutorial = true;
-    currPage = 0;
     //load cost canvases
     CostCanvas.gameObject.SetActive(true);
     TutorialCanvas.gameObject.SetActive(true);
-    //load first page in cost tutorial
-    CostTutorialPages[0].gameObject.SetActive(true);
     transitionManager.FadeScreenIn();
     //set data on expense report page
     onCostPage = true;

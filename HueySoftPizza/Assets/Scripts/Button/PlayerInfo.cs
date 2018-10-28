@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerInfo : MonoBehaviour
 {
+  [System.NonSerialized]
   public int currMoney = 10;
   public int currProfileSeen;
 
