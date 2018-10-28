@@ -14,6 +14,7 @@ public enum EndStates
   FalseInfo,
   TooManyStrikes,
   Conspiring,
+  Dabbnapping
 }
 
 public class GameOverChecker : MonoBehaviour
