@@ -110,19 +110,110 @@ public class GameButton : MonoBehaviour
   {
     string line;
     //first names
-    StreamReader reader = new StreamReader("Assets/Stories/FirstNames.txt", Encoding.GetEncoding(1252));
+    StreamReader reader = new StreamReader("Assets/Stories/LastNames.txt", Encoding.GetEncoding(1252));
+    StreamWriter writer = new StreamWriter("Assets/Stories/asdf.txt", true);
+
     while ((line = reader.ReadLine()) != null)
     {
-      firstNames.Add(line);
+      writer.WriteLine("lirstNames.Add(\"" + line + "\");");
     }
     reader.Close();
-    //last names
-    reader = new StreamReader("Assets/Stories/LastNames.txt", Encoding.GetEncoding(1252));
-    while ((line = reader.ReadLine()) != null)
-    {
-      lastNames.Add(line);
-    }
-    reader.Close();
+    writer.Close();
+
+    // FIRST NAMES
+    firstNames.Add("Chris");
+    firstNames.Add("Skyler");
+    firstNames.Add("Kai");
+    firstNames.Add("Sam");
+    firstNames.Add("Soy");
+    firstNames.Add("Dog");
+    firstNames.Add("Max");
+    firstNames.Add("Maks");
+    firstNames.Add("Oliver");
+    firstNames.Add("Lilith");
+    firstNames.Add("Kate");
+    firstNames.Add("George");
+    firstNames.Add("TRACK");
+    firstNames.Add("Yarcus");
+    firstNames.Add("Oppressedmillennialepic90sgamerkid");
+    firstNames.Add("God");
+    firstNames.Add("Harold");
+    firstNames.Add("Blakum");
+    firstNames.Add("Mary");
+    firstNames.Add("Claire");
+    firstNames.Add("Claire");
+    firstNames.Add("Claire");
+    firstNames.Add("Claire");
+    firstNames.Add("Claire");
+    firstNames.Add("Claire");
+    firstNames.Add("Claire");
+    firstNames.Add("Momoka");
+    firstNames.Add("Hanako");
+    firstNames.Add("Lily");
+    firstNames.Add("Tomoka");
+    firstNames.Add("Tomoko");
+    firstNames.Add("Samantha");
+    firstNames.Add("Fareya");
+    firstNames.Add("Janette");
+    firstNames.Add("Samanth");
+    firstNames.Add("Booger");
+    firstNames.Add("Stan");
+    firstNames.Add("Gabe");
+    firstNames.Add("Chad");
+    firstNames.Add("Virgil");
+    firstNames.Add("Greg");
+    firstNames.Add("Kathy");
+    firstNames.Add("Brooke");
+    firstNames.Add("Zlaire");
+    firstNames.Add("Strudel");
+    firstNames.Add("Kennedy");
+    firstNames.Add("Alex");
+    firstNames.Add("Cassandra");
+    firstNames.Add("Jimmy");
+    firstNames.Add("Freya");
+    firstNames.Add("Madison");
+    // FIRST NAMES END
+
+    // //last names
+    // reader = new StreamReader("Assets/Stories/LastNames.txt", Encoding.GetEncoding(1252));
+    // while ((line = reader.ReadLine()) != null)
+    // {
+    //   lastNames.Add(line);
+    // }
+    // reader.Close();
+
+    // LAST NAMES
+    lastNames.Add("Newell");
+    lastNames.Add("Mamamoto");
+    lastNames.Add("Willson");
+    lastNames.Add("King");
+    lastNames.Add("Ette");
+    lastNames.Add("Cygan");
+    lastNames.Add("Brown");
+    lastNames.Add("Smith");
+    lastNames.Add("McPubg");
+    lastNames.Add("Park");
+    lastNames.Add("Kim");
+    lastNames.Add("Fields");
+    lastNames.Add("Ngoap");
+    lastNames.Add("Roley");
+    lastNames.Add("Skyler");
+    lastNames.Add("Huey");
+    lastNames.Add("hitkwe");
+    lastNames.Add("hetlur");
+    lastNames.Add("Stakub");
+    lastNames.Add("Yashed");
+    lastNames.Add("Schicklgruber");
+    lastNames.Add("Connor");
+    lastNames.Add("Claire");
+    lastNames.Add("Claire");
+    lastNames.Add("Claire");
+    lastNames.Add("Heffley");
+    lastNames.Add("Williams");
+    lastNames.Add("Manfield");
+    lastNames.Add("Chrester");
+    // LAST NAMES END
+
     //About me, hobby, anime
     reader = new StreamReader("Assets/Stories/AboutMes/Hobbies/Anime.txt", Encoding.GetEncoding(1252));
     while ((line = reader.ReadLine()) != null)
