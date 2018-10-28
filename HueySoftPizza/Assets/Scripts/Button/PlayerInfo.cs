@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerInfo : MonoBehaviour
 {
@@ -16,10 +17,26 @@ public class PlayerInfo : MonoBehaviour
   public bool paidHouse;
   public bool paidMedicine;
 
-  // Use this for initialization
+  private static PlayerInfo playerInfo;
+
+  public void Awake()
+  {
+    if (playerInfo != null && SceneManager.GetActiveScene().name == "Day1")
+    {
+      playerInfo.NewPlayer();
+    }
+    //If we are making a new PlayerInfo but it isn't the original, delete it.
+    if (playerInfo != null && playerInfo != this)
+    {
+      Destroy(this.gameObject);
+      return;
+    }
+    playerInfo = this;
+    DontDestroyOnLoad(this.gameObject);
+  }
+
   void Start()
   {
-    DontDestroyOnLoad(this.gameObject);
     currMoney = 10; //start with 10
     currProfileSeen = 0;
     paidFood = false;
@@ -28,7 +45,6 @@ public class PlayerInfo : MonoBehaviour
     paidMedicine = false;
   }
 
-  // Update is called once per frame
   void Update()
   {
 
@@ -82,5 +98,17 @@ public class PlayerInfo : MonoBehaviour
     paidTax = false;
     paidHouse = false;
     paidMedicine = false;
+  }
+
+  /// <summary>
+  /// Resets a player to the start of a new game.
+  /// </summary>
+  public void NewPlayer()
+  {
+    paidFood = false;
+    paidTax = false;
+    paidHouse = false;
+    paidMedicine = false;
+    currMoney = 10;
   }
 }
