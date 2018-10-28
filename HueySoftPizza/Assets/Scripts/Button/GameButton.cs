@@ -64,6 +64,8 @@ public class GameButton : MonoBehaviour
   public GameObject recordingText2;
   public GameObject recordingText3;
   public LevelTransition transitionManager;
+  public AudioManager audioManager;
+  public GameObject recordingIcon;
 
   [SerializeField]
   private string currName;
@@ -196,6 +198,21 @@ public class GameButton : MonoBehaviour
     {
       playerInfo.IncreaseMoney();
     }
+    // 5 credits for selling on day 5
+    if (CurrDay == 5)
+    {
+      playerInfo.IncreaseMoney();
+      playerInfo.IncreaseMoney();
+      playerInfo.IncreaseMoney();
+      playerInfo.IncreaseMoney();
+    }
+    // 3 credits for selling dabbers on day 7
+    if (CurrDay == 7 && currHobby == Hobbies.Dabbing)
+    {
+      playerInfo.IncreaseMoney();
+      playerInfo.IncreaseMoney();
+    }
+
     if (playerInfo.currProfileSeen >= MaxProfileForDay)
     {
       TotalCredits.text = (playerInfo.currMoney + playerInfo.currProfitForDay).ToString();
@@ -245,6 +262,12 @@ public class GameButton : MonoBehaviour
         Day2Controller.EndSellingDay();
         break;
       case 6:
+        Day2Controller.EndSellingDay();
+        break;
+      case 7:
+        Day2Controller.EndSellingDay();
+        break;
+      default:
         Day2Controller.EndSellingDay();
         break;
     }
@@ -322,8 +345,6 @@ public class GameButton : MonoBehaviour
               playerInfo.currState = EndStates.TooManyStrikes;
               StartCoroutine(transitionManager.TransitionScene("BadEnd"));
               break;
-            default:
-              break;
           }
 
         }
@@ -338,6 +359,32 @@ public class GameButton : MonoBehaviour
           playerInfo.IncreaseIncorrect();
           //Also add another credit because it's double day
           playerInfo.IncreaseMoney();
+        }
+        break;
+      case 5:
+        if (currSex != Sex.Female || currHobby != Hobbies.Dabbing || currAge != Age.Young)
+        {
+          playerInfo.IncreaseIncorrect();
+
+          if (playerInfo.incorrectCount == 2)
+          {
+            audioManager.PlayScarySFX1();
+            recordingIcon.GetComponent<Image>().color = Color.black;
+          }
+          else if (playerInfo.incorrectCount > 2)
+          {
+            audioManager.PlayScarySFX2();
+            StartCoroutine(transitionManager.ScaryFade("MainMenu"));
+          }
+        }
+        break;
+      case 7:
+        if (currHobby != Hobbies.Dabbing)
+        {
+          if (currAge != Age.Young || currEd != Education.HighSchool)
+          {
+            playerInfo.IncreaseIncorrect();
+          }
         }
         break;
       case 6:
