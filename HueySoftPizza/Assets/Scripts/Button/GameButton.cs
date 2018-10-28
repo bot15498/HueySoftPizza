@@ -222,6 +222,9 @@ public class GameButton : MonoBehaviour
       case 3:
         Day2Controller.EndSellingDay();
         break;
+      case 4:
+        Day2Controller.EndSellingDay();
+        break;
     }
   }
 
@@ -270,7 +273,14 @@ public class GameButton : MonoBehaviour
         break;
       default:
         break;
-
+      case 4:
+        if(currHobby == Hobbies.Fortnite)
+        {
+          playerInfo.IncreaseIncorrect();
+          //Also add another credit because it's double day
+          playerInfo.IncreaseMoney();
+        }
+        break;
     }
   }
 

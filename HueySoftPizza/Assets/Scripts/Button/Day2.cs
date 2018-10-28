@@ -82,6 +82,10 @@ public class Day2 : MonoBehaviour
     {
       i.gameObject.SetActive(false);
     }
+    if(TutorialPages.Count == 0)
+    {
+      inTutorial = false;
+    }
     //TutorialPages[0].gameObject.SetActive(true);
     //currPage = 0;
     //look for transition manager
@@ -170,7 +174,7 @@ public class Day2 : MonoBehaviour
     leftLongBody.GetComponent<Text>().text = leftColumnBodyText;
     leftShortBody.GetComponent<Text>().text = leftColumnBodyText;
     rightTitle.GetComponent<Text>().text = rightColumnTitle;
-    rightLongBody.GetComponent<Text>().text = rightColumnBodyText;
+    rightShortBody.GetComponent<Text>().text = rightColumnBodyText;
     rightLongBody.GetComponent<Text>().text = rightColumnBodyText;
     leftImageObj.GetComponent<Image>().sprite = leftColumnImage;
     rightImageObj.GetComponent<Image>().sprite = rightColumnImage;
