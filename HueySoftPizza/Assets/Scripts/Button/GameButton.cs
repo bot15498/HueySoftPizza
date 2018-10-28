@@ -50,8 +50,8 @@ public class GameButton : MonoBehaviour
   public Text RemainingProfilesField;
   public Text TotalCredits;
   public Day1 Day1Controller;
-  /*public Day2 Day2Controller;
-  public Day3 Day3Controller;
+  public Day2 Day2Controller;
+  /*public Day3 Day3Controller;
   public Day4 Day4Controller;
   public Day5 Day5Controller;
   public Day6 Day6Controller;
@@ -206,6 +206,9 @@ public class GameButton : MonoBehaviour
     {
       case 1:
         Day1Controller.EndSellingDay();
+        break;
+      case 2:
+        Day2Controller.EndSellingDay();
         break;
     }
   }
