@@ -24,6 +24,8 @@ public class PlayerInfo : MonoBehaviour
   public int dataBreachCount = 0;
   public EndStates currState;
 
+  public bool recordedViolation = false;
+
   private static PlayerInfo playerInfo;
 
   public void Awake()
@@ -93,7 +95,8 @@ public class PlayerInfo : MonoBehaviour
 
   public void IncreaseMoney()
   {
-    currProfitForDay++;
+    if (recordedViolation == false)
+      currProfitForDay++;
   }
 
   public void IncreaseIncorrect()
