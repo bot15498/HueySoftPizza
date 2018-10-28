@@ -28,6 +28,7 @@ public class Day1 : MonoBehaviour
   [SerializeField]
   private bool onCostPage;
   private PlayerInfo playerInfo;
+  private GameOverChecker gameOverCheck;
 
   // Use this for initialization
   void Start()
@@ -61,6 +62,11 @@ public class Day1 : MonoBehaviour
       playerInfo.houseCostPerDay = houseCostPerDay;
       playerInfo.taxCostPerDay = taxCostPerDay;
     }
+    //look for game over checker
+    if(gameOverCheck == null)
+    {
+      gameOverCheck = FindObjectOfType<GameOverChecker>();
+    }
   }
 
   // Update is called once per frame
@@ -69,6 +75,16 @@ public class Day1 : MonoBehaviour
     if (transitionManager == null)
     {
       transitionManager = FindObjectOfType<LevelTransition>();
+    }
+    //look for game over checker
+    if (gameOverCheck == null)
+    {
+      gameOverCheck = FindObjectOfType<GameOverChecker>();
+    }
+    //look for player info
+    if (playerInfo == null)
+    {
+      playerInfo = FindObjectOfType<PlayerInfo>();
     }
     if (inTutorial)
     {
@@ -128,6 +144,36 @@ public class Day1 : MonoBehaviour
     MainGameCanvas.GetComponent<CanvasGroup>().interactable = false;
     playerInfo.currProfileSeen = 0;
     StartCoroutine(LoadExpensePage());
+  }
+
+  public void ContinueToNextDay()
+  {
+    EndStates endState = gameOverCheck.CheckEndOfDay();
+    switch(endState)
+    {
+      case EndStates.NoFood:
+        break;
+      case EndStates.NoHouse:
+        break;
+      case EndStates.NoTax:
+        break;
+      case EndStates.NoMoney:
+        break;
+      case EndStates.TooManyStrikes:
+        break;
+      case EndStates.KidDies:
+        break;
+      case EndStates.DataBreach:
+        break;
+      case EndStates.Conspiring:
+        break;
+      case EndStates.FalseInfo:
+        break;
+      case EndStates.None:
+        //TODO: Change this
+        StartCoroutine(transitionManager.TransitionScene("MainMenu"));
+        break;
+    }
   }
 
   private IEnumerator LoadExpensePage()

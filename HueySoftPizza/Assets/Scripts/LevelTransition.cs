@@ -27,6 +27,17 @@ public class LevelTransition : MonoBehaviour
     FadeScreenIn();
   }
 
+  public IEnumerator TransitionScene(string newSceneName)
+  {
+    screenFadeMask.GetComponent<Image>().raycastTarget = true;
+    isTransitioning = true;
+    FadeScreenOut();
+    while (isTransitioning)
+    {
+      yield return true;
+    }
+    SceneManager.LoadScene(newSceneName);
+  }
 
   /// <summary>
   /// Fades the screen out over fadeTime.
