@@ -1,24 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+  public Image bg1;
+  public Image bg2;
 
-    // Use this for initialization
-    void Start()
+  // Use this for initialization
+  void Start()
+  {
+    if (File.Exists(Application.dataPath + "/ss.ss"))
     {
-
+      bg2.gameObject.SetActive(true);
+      bg1.gameObject.SetActive(false);
     }
-
-    // Update is called once per frame
-    void Update()
+    else
     {
-
+      bg2.gameObject.SetActive(false);
+      bg1.gameObject.SetActive(true);
     }
+  }
 
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
+  // Update is called once per frame
+  void Update()
+  {
+
+  }
+
+  public void QuitGame()
+  {
+    Application.Quit();
+  }
 }
