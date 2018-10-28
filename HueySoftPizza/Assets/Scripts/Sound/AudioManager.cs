@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEngine; // MonoBehavior
+using UnityEngine.SceneManagement; //SceneManager
 
 public class AudioManager : MonoBehaviour
 {
@@ -12,7 +13,11 @@ public class AudioManager : MonoBehaviour
   // Use this for initialization
   void Start()
   {
-    PlayLevelMusic();
+    string currScene = SceneManager.GetActiveScene().name;
+    if (currScene == "MainMenu")
+      PlayMenuMusic();
+    else
+      PlayLevelMusic();
   }
 
   // Update is called once per frame
@@ -62,6 +67,6 @@ public class AudioManager : MonoBehaviour
 
   public void PlayMenuMusic()
   {
-    Play(mainMenuMusic, -16f, true);
+    Play(mainMenuMusic, -18f, true);
   }
 }
