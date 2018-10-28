@@ -374,7 +374,7 @@ public class Day1 : MonoBehaviour
       case EndStates.None:
         //TODO: Change this
         playerInfo.ResetPlayer();
-        StartCoroutine(transitionManager.TransitionScene("Day4"));
+        StartCoroutine(transitionManager.TransitionScene("Day2"));
         break;
     }
   }
