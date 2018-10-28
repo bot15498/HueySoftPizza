@@ -5,16 +5,23 @@ using UnityEngine.UI; // Image
 
 public class LevelTransition : MonoBehaviour
 {
+  // AudioSource used for fade outs
+  public AudioSource audioSource;
+
   // Fade Parameters
   const float fadeTime = 1.0f;
   const float minTransparency = 1.0f; // 1.0 = completely visible
   const float maxTransparency = 0.0f; // 0.0 = completely invisible
+  const string level1 = "Day1";
 
   // Optional action to take after fading out
   public enum PostFadeAction { Nothing, StartGame, QuitGame };
 
   // A black mask over the screen. Alpha is interpolated to fade the screen in and out.
   public GameObject screenFadeMask;
+
+  //A flag to show that we are transitioning
+  public bool isTransitioning;
 
   /// <summary>
   /// Fades in screen on startup
@@ -52,6 +59,9 @@ public class LevelTransition : MonoBehaviour
 
     // Fade out the screen, then start the game.
     StartCoroutine(FadeOut(screenFadeMask, PostFadeAction.StartGame));
+
+    // Fade out music
+    FadeOutVol();
   }
 
 
@@ -67,6 +77,9 @@ public class LevelTransition : MonoBehaviour
 
     // Fade out the screen, then start the game.
     StartCoroutine(FadeOut(screenFadeMask, PostFadeAction.QuitGame));
+
+    // Fade out music
+    FadeOutVol();
   }
 
 
@@ -83,6 +96,7 @@ public class LevelTransition : MonoBehaviour
     // Decrement alpha over time so that it reaches maxTransparency after fadeTime
     for (float f = 0; f <= fadeTime; f += Time.deltaTime)
     {
+      isTransitioning = true;
       // Find the percent to interpolate between max transparency and min transparency
       float interpolationValue = (1 - (f / fadeTime));
 
@@ -94,11 +108,12 @@ public class LevelTransition : MonoBehaviour
       // Advance to next frame
       yield return null;
     }
+    isTransitioning = false;
 
     // Start the game if screen is finished fading out and startGame == true
     if (action == PostFadeAction.StartGame)
     {
-      SceneManager.LoadScene("Game");
+      SceneManager.LoadScene(level1);
       yield break;
     }
 
@@ -140,6 +155,7 @@ public class LevelTransition : MonoBehaviour
     // Decrement alpha over time so that it reaches maxTransparency after fadeTime
     for (float f = 0; f <= fadeTime; f += Time.deltaTime)
     {
+      isTransitioning = true;
       // Find the percent to interpolate between max transparency and min transparency
       float interpolationValue = (f / fadeTime);
 
@@ -147,6 +163,34 @@ public class LevelTransition : MonoBehaviour
       Color tempColorHolder = fadedObject.GetComponent<Image>().color;
       tempColorHolder.a = Mathf.Lerp(minTransparency, maxTransparency, interpolationValue);
       fadedObject.GetComponent<Image>().color = tempColorHolder;
+
+      // Advance to next frame
+      yield return null;
+    }
+    isTransitioning = false;
+  }
+
+  /// <summary>
+  /// Fade out the volume of the AudioSource of the AudioManager attached to this TransitionManager
+  /// </summary>
+  public void FadeOutVol()
+  {
+    // Find the volume before it fades out
+    float currentVol = audioSource.volume;
+
+    // Fade it out
+    StartCoroutine(FadeOutV(currentVol));
+  }
+
+  IEnumerator FadeOutV(float startVol)
+  {
+    for (float f = 0; f <= fadeTime; f += Time.deltaTime)
+    {
+      // Find the percent to interpolate between max volume and min volume
+      float interpolationValue = (1 - (f / fadeTime));
+
+      // Set the new volume
+      audioSource.volume = Mathf.Lerp(0f, startVol, interpolationValue);
 
       // Advance to next frame
       yield return null;
