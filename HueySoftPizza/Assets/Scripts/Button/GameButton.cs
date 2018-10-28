@@ -214,6 +214,9 @@ public class GameButton : MonoBehaviour
       case 2:
         Day2Controller.EndSellingDay();
         break;
+      case 4:
+        Day2Controller.EndSellingDay();
+        break;
     }
   }
 
@@ -229,6 +232,14 @@ public class GameButton : MonoBehaviour
         else if(currAge != Age.Young)
         {
           playerInfo.IncreaseIncorrect();
+        }
+        break;
+      case 4:
+        if(currHobby == Hobbies.Fortnite)
+        {
+          playerInfo.IncreaseIncorrect();
+          //Also add another credit because it's double day
+          playerInfo.IncreaseMoney();
         }
         break;
     }
