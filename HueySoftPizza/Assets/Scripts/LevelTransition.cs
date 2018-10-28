@@ -16,6 +16,9 @@ public class LevelTransition : MonoBehaviour
   // A black mask over the screen. Alpha is interpolated to fade the screen in and out.
   public GameObject screenFadeMask;
 
+  //A flag to show that we are transitioning
+  public bool isTransitioning;
+
   /// <summary>
   /// Fades in screen on startup
   /// </summary>
@@ -83,6 +86,7 @@ public class LevelTransition : MonoBehaviour
     // Decrement alpha over time so that it reaches maxTransparency after fadeTime
     for (float f = 0; f <= fadeTime; f += Time.deltaTime)
     {
+      isTransitioning = true;
       // Find the percent to interpolate between max transparency and min transparency
       float interpolationValue = (1 - (f / fadeTime));
 
@@ -94,6 +98,7 @@ public class LevelTransition : MonoBehaviour
       // Advance to next frame
       yield return null;
     }
+    isTransitioning = false;
 
     // Start the game if screen is finished fading out and startGame == true
     if (action == PostFadeAction.StartGame)
@@ -140,6 +145,7 @@ public class LevelTransition : MonoBehaviour
     // Decrement alpha over time so that it reaches maxTransparency after fadeTime
     for (float f = 0; f <= fadeTime; f += Time.deltaTime)
     {
+      isTransitioning = true;
       // Find the percent to interpolate between max transparency and min transparency
       float interpolationValue = (f / fadeTime);
 
@@ -151,5 +157,6 @@ public class LevelTransition : MonoBehaviour
       // Advance to next frame
       yield return null;
     }
+    isTransitioning = false;
   }
 }
