@@ -1875,6 +1875,24 @@ Prefab:
       propertyPath: m_Text
       value: -Only Approve Young (16-25) Males.
       objectReference: {fileID: 0}
+    - target: {fileID: 114794466377043902, guid: c1b84fffc2cacf9498b183f1cf16c813,
+        type: 2}
+      propertyPath: MaxProfileForDay
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1669092500679802, guid: c1b84fffc2cacf9498b183f1cf16c813, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114794466377043902, guid: c1b84fffc2cacf9498b183f1cf16c813,
+        type: 2}
+      propertyPath: CurrDay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326223303098866, guid: c1b84fffc2cacf9498b183f1cf16c813, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1b84fffc2cacf9498b183f1cf16c813, type: 2}
   m_IsPrefabAsset: 0

@@ -182,7 +182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1347436445005678
 GameObject:
   m_ObjectHideFlags: 1
@@ -422,7 +422,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1801993220901804
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,9 +1285,15 @@ MonoBehaviour:
   TotalCredits: {fileID: 114184021321442432}
   Day1Controller: {fileID: 0}
   Day2Controller: {fileID: 0}
-  MaxProfileForDay: 8
+  MaxProfileForDay: 4
   PricePerProfile: 1
-  CurrDay: 2
+  CurrDay: 1
+  recordingText: {fileID: 0}
+  recordingText2: {fileID: 0}
+  recordingText3: {fileID: 0}
+  transitionManager: {fileID: 0}
+  audioManager: {fileID: 0}
+  recordingIcon: {fileID: 0}
   currName: 
   currFirstName: 
   currLastName: 
@@ -1297,6 +1303,20 @@ MonoBehaviour:
   currEd: 0
   currActivities: 
   currPnA: 0
+  firstNames: []
+  lastNames: []
+  hobbyAnime: []
+  hobbyFortnite: []
+  hobbyDabbing: []
+  edHighSchool: []
+  edCollege: []
+  profilePictures:
+  - {fileID: 21300000, guid: 55c8c154eb2d80c4e848ea371b89eba6, type: 3}
+  - {fileID: 21300000, guid: 1c5f1ab1692b0ce4eb22d63290ec99b2, type: 3}
+  - {fileID: 21300000, guid: 2910c7002aee2c24bad967f3f28c294a, type: 3}
+  - {fileID: 21300000, guid: 4afc888f75016c141aa3938105351266, type: 3}
+  - {fileID: 21300000, guid: 014d9882fff0694478b7b2175abb08dc, type: 3}
+  recentActivities: []
 --- !u!114 &114813648759621392
 MonoBehaviour:
   m_ObjectHideFlags: 1

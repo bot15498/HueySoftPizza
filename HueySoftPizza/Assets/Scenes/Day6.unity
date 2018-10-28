@@ -1772,6 +1772,14 @@ Prefab:
       propertyPath: MaxProfileForDay
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1669092500679802, guid: c1b84fffc2cacf9498b183f1cf16c813, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326223303098866, guid: c1b84fffc2cacf9498b183f1cf16c813, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1b84fffc2cacf9498b183f1cf16c813, type: 2}
   m_IsPrefabAsset: 0
