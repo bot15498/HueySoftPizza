@@ -2392,6 +2392,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114477248194659724, guid: 8a2a7ff4f98a05245ac0d2f49451bf61,
+        type: 2}
+      propertyPath: houseCostPerDay
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a2a7ff4f98a05245ac0d2f49451bf61, type: 2}
   m_IsPrefabAsset: 0
@@ -2426,6 +2431,7 @@ MonoBehaviour:
   houseCostField: {fileID: 746538082}
   TaxCostField: {fileID: 395039924}
   TotalField: {fileID: 746538084}
+  gameButton: {fileID: 0}
   currPage: 0
   inTutorial: 0
   onCostPage: 0

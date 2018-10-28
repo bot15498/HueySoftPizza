@@ -1767,6 +1767,11 @@ Prefab:
       propertyPath: recordingText3
       value: 
       objectReference: {fileID: 1476752467}
+    - target: {fileID: 114794466377043902, guid: c1b84fffc2cacf9498b183f1cf16c813,
+        type: 2}
+      propertyPath: MaxProfileForDay
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1b84fffc2cacf9498b183f1cf16c813, type: 2}
   m_IsPrefabAsset: 0
@@ -2396,7 +2401,7 @@ MonoBehaviour:
   MainGameCanvas: {fileID: 257968409}
   transitionManager: {fileID: 0}
   taxCostPerDay: 2
-  foodCostPerDay: 2
+  foodCostPerDay: 4
   houseCostPerDay: 2
   foodCostField: {fileID: 746538083}
   houseCostField: {fileID: 746538082}
