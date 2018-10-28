@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEngine; // MonoBehavior
+using UnityEngine.SceneManagement; //SceneManager
 
 public class AudioManager : MonoBehaviour
 {
@@ -8,11 +9,16 @@ public class AudioManager : MonoBehaviour
   public AudioClip passSFX;
   public AudioClip levelMusic;
   public AudioClip mainMenuMusic;
+  public AudioClip clickSFX;
 
   // Use this for initialization
   void Start()
   {
-    PlayLevelMusic();
+    string currScene = SceneManager.GetActiveScene().name;
+    if (currScene == "MainMenu")
+      PlayMenuMusic();
+    else
+      PlayLevelMusic();
   }
 
   // Update is called once per frame
@@ -42,26 +48,31 @@ public class AudioManager : MonoBehaviour
 
   public void PlayButtonHoverSFX()
   {
-    Play(buttonHoverSFX, -6f);
+    Play(buttonHoverSFX, -10f);
   }
 
   public void PlaySellSFX()
   {
-    Play(sellSFX, -6f);
+    Play(sellSFX, 0f);
   }
 
   public void PlayPassSFX()
   {
-    Play(passSFX, -6f);
+    Play(passSFX, -2f);
   }
 
   public void PlayLevelMusic()
   {
-    Play(levelMusic, -21f, true);
+    Play(levelMusic, -16f, true);
   }
 
   public void PlayMenuMusic()
   {
-    Play(mainMenuMusic, -21f, true);
+    Play(mainMenuMusic, -18f, true);
+  }
+
+  public void PlayClickSFX()
+  {
+    Play(clickSFX, -3f);
   }
 }
