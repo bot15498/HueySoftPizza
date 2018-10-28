@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5acd400e5dab7544a27b7e656f75d9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMoney: 0
+  currMoney: 10
   currProfileSeen: 0
   taxCostPerDay: 2
   foodCostPerDay: 2
@@ -60,3 +60,4 @@ MonoBehaviour:
   paidTax: 0
   paidHouse: 0
   paidMedicine: 0
+  currState: 0
