@@ -18,6 +18,7 @@ public class Day2 : MonoBehaviour
   public Text houseCostField;
   public Text TaxCostField;
   public Text TotalField;
+  public GameButton gameButton;
 
   [SerializeField]
   private int currPage;
@@ -80,6 +81,10 @@ public class Day2 : MonoBehaviour
     foreach (Image i in TutorialPages)
     {
       i.gameObject.SetActive(false);
+    }
+    if(TutorialPages.Count == 0)
+    {
+      inTutorial = false;
     }
     //TutorialPages[0].gameObject.SetActive(true);
     //currPage = 0;
@@ -169,7 +174,7 @@ public class Day2 : MonoBehaviour
     leftLongBody.GetComponent<Text>().text = leftColumnBodyText;
     leftShortBody.GetComponent<Text>().text = leftColumnBodyText;
     rightTitle.GetComponent<Text>().text = rightColumnTitle;
-    rightLongBody.GetComponent<Text>().text = rightColumnBodyText;
+    rightShortBody.GetComponent<Text>().text = rightColumnBodyText;
     rightLongBody.GetComponent<Text>().text = rightColumnBodyText;
     leftImageObj.GetComponent<Image>().sprite = leftColumnImage;
     rightImageObj.GetComponent<Image>().sprite = rightColumnImage;
@@ -344,7 +349,35 @@ public class Day2 : MonoBehaviour
         break;
       case EndStates.None:
         //TODO: Change this
-        StartCoroutine(transitionManager.TransitionScene("MainMenu"));
+        playerInfo.ResetPlayer();
+        switch (gameButton.CurrDay)
+        {
+          case 1:
+            StartCoroutine(transitionManager.TransitionScene("Day2"));
+            break;
+          case 2:
+            StartCoroutine(transitionManager.TransitionScene("Day3"));
+            break;
+          case 3:
+            StartCoroutine(transitionManager.TransitionScene("Day4"));
+            break;
+          case 4:
+            StartCoroutine(transitionManager.TransitionScene("Day5"));
+            break;
+          case 5:
+            StartCoroutine(transitionManager.TransitionScene("Day6"));
+            break;
+          case 6:
+            StartCoroutine(transitionManager.TransitionScene("Day7"));
+            break;
+          case 7:
+            StartCoroutine(transitionManager.TransitionScene("MainMenu"));
+            break;
+          default:
+            StartCoroutine(transitionManager.TransitionScene("MainMenu"));
+            break;
+        }
+        
         break;
     }
   }
