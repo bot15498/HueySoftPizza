@@ -60,6 +60,11 @@ public class GameButton : MonoBehaviour
   public int PricePerProfile = 1;
   public int CurrDay;
 
+  public GameObject recordingText;
+  public GameObject recordingText2;
+  public GameObject recordingText3;
+  public LevelTransition transitionManager;
+
   [SerializeField]
   private string currName;
   [SerializeField]
@@ -214,6 +219,9 @@ public class GameButton : MonoBehaviour
       case 2:
         Day2Controller.EndSellingDay();
         break;
+      case 3:
+        Day2Controller.EndSellingDay();
+        break;
     }
   }
 
@@ -231,7 +239,51 @@ public class GameButton : MonoBehaviour
           playerInfo.IncreaseIncorrect();
         }
         break;
+      case 3:
+        if (currSex == Sex.Male && currHobby == Hobbies.Anime && currAge == Age.Old)
+        {
+          playerInfo.IncreaseIncorrect();
+
+          switch (playerInfo.incorrectCount)
+          {
+            case 1:
+              ShowRecordingWarning();
+              break;
+            case 2:
+              // all profits are taken away and no more profits for the day
+              playerInfo.recordedViolation = true;
+              playerInfo.currProfitForDay = 0;
+              ShowRecordingWarning2();
+              break;
+            case 3:
+              // game over
+              playerInfo.currState = EndStates.TooManyStrikes;
+              StartCoroutine(transitionManager.TransitionScene("BadEnd"));
+              break;
+            default:
+              break;
+          }
+          
+        }
+
+        
+        break;
+      default:
+        break;
+
     }
+  }
+
+  public void ShowRecordingWarning()
+  {
+    recordingText.SetActive(false);
+    recordingText2.SetActive(true);
+  }
+
+  public void ShowRecordingWarning2()
+  {
+    recordingText2.SetActive(false);
+    recordingText3.SetActive(true);
   }
 
   public void ShowNewPerson()
@@ -244,7 +296,7 @@ public class GameButton : MonoBehaviour
     currFirstName = firstNames[Random.Range(0, firstNames.Count)];
     currLastName = lastNames[Random.Range(0, lastNames.Count)];
     currName = currFirstName + " " + currLastName;
-    currAge = (Age)Random.Range(0, System.Enum.GetNames(typeof(Age)).Length - 1);
+    currAge = (Age)Random.Range(0, System.Enum.GetNames(typeof(Age)).Length);
     currSex = (Sex)Random.Range(0, 3);
     currHobby = (Hobbies)Random.Range(0, System.Enum.GetNames(typeof(Hobbies)).Length);
     currEd = (Education)Random.Range(0, System.Enum.GetNames(typeof(Education)).Length);
