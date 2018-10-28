@@ -2592,10 +2592,22 @@ MonoBehaviour:
   currPage: 0
   inTutorial: 0
   onCostPage: 0
-  todaysNewspaper: Assets/Stories/Newspapers/Day4News.txt
+  todaysNewspaper: 'Fortnite Featured|International Fortnite Day!|LONG|Attention,
+    all Fortnite Gamers. John Wick is in great danger and he needs your help to wipe
+    out the squads in the Tilted Towers. But to do this he needs a golden scar, and
+    a couple of chug jugs. To help him, all he needs is your credit card number, the
+    three digits on the back, and the expiration month and year. But you gotta be
+    quick, so that John Wick can secure the bag, and achieve the epic Victory Royale!|Spying
+    on Fortnite Players?|SHORT|Are you a Fortnite player? Your personal information
+    could be in danger! Sources say that the social media profiles of Fortnite players
+    are in high demand. "Data collction companies are paying double for these profiles"
+    says an anonymous source. (Sell Fortnite profiles for double.) '
   leftColumnImage: {fileID: 21300000, guid: e51efb1c0c8317b44b328baf1f14869b, type: 3}
   rightColumnImage: {fileID: 21300000, guid: e51efb1c0c8317b44b328baf1f14869b, type: 3}
-  todaysEmail: Assets/Stories/Emails/Day4Email.txt
+  todaysEmail: 'Boss McBoss|No Fortniters!|Attention all employees. Due to International
+    Fortnite day, our clients have requested that all Fortnite profiles are filtered
+    out due to possible interference with data.~~Due to a highly increased amount
+    of traffic we will not be monitoring today''s session. '
   senderImage: {fileID: 21300000, guid: 29fe9eee782375949bcfb0263d5e93d0, type: 3}
   newspaperCanvas: {fileID: 1716758539}
   newsTitle: {fileID: 1764716405}

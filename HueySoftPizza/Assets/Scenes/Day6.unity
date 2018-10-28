@@ -2410,10 +2410,19 @@ MonoBehaviour:
   currPage: 0
   inTutorial: 0
   onCostPage: 0
-  todaysNewspaper: Assets/Stories/Newspapers/Day6News.txt
+  todaysNewspaper: "??????????????|\u039D\u03B1 \u03B5\u03AF\u03C3\u03C4\u03B5 \u03AE\u03C3\u03C5\u03C7\u03BF
+    \u03BC\u03C5\u03C3\u03C4\u03B9\u03BA\u03CC|LONG| \u0F3C \u3064\u25D5\u0296 _(\u3064
+    \u0361\xB0 \u035C \u0361)\u25D5\xB0 \u0F3D  |????|LONG|Do NOT sell the profile
+    of Huey Fields.                                                                 10
+    Credits will be wired to your account.                                                                                            Do
+    NOT cross us."
   leftColumnImage: {fileID: 21300000, guid: baa7fd6e3964e734f92b18c9d9f65398, type: 3}
   rightColumnImage: {fileID: 21300000, guid: 29fe9eee782375949bcfb0263d5e93d0, type: 3}
-  todaysEmail: Assets/Stories/Emails/Day6Email.txt
+  todaysEmail: CEO Thomas Morris|This is a message from CEO Thomas Morris.|This is
+    a message from CEO Thomas Morris.~~Today every branch will be assisting the government
+    in their new Surveillance Initiative. Participation is mandatory. You will not
+    be compensated for your labor. Any complaints will result in immediate arrest
+    for refusing to cooperate with the state.
   senderImage: {fileID: 21300000, guid: 29fe9eee782375949bcfb0263d5e93d0, type: 3}
   newspaperCanvas: {fileID: 1716758539}
   newsTitle: {fileID: 1764716405}

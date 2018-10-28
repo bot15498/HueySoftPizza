@@ -2441,10 +2441,30 @@ MonoBehaviour:
   currPage: 0
   inTutorial: 0
   onCostPage: 0
-  todaysNewspaper: Assets/Stories/Newspapers/Day2News.txt
+  todaysNewspaper: 'The All-Week Sunday Profit|House On Tetrick Road Suddenly Caves
+    In!|SHORT|At around 9 am this morning, a walker in the Tetrick neighborhood witnessed
+    the walls of various houses collapsing. "It looks like it will cost A LOT to fix
+    this," says the local contractor Jhon Maden. Mr. "Tetrick locals would be wise
+    to save up some cash."(Housing Costs Have Been Doubled)|Popular Online Game On
+    The Rise|LONG|These days, it''s not uncommon for people to be seen playing a game
+    on their phone while they are out and about. These kinds of games are usually
+    what people think about whenever a "game" is mentioned. However, this kind of
+    game is a new kind of game. The game is called Fortnite, and can only be played
+    on the most powerful computers on the market. The game consists of a static map,
+    where individuals challenge each other to honorary duels in an attempt to prove
+    themselves the worthiest of the Virgin King Crown. Fortnite also features online
+    multiplayer, meaning that people from across the country or across the worldcould
+    be playing and chatting as if they were in the same room. This is revolutionary
+    for the gaming community and the online community as a whole. "The only downside,"
+    says gaming expert Hury Felds, "is that the power consumption just to run the
+    game is humongous. We definitely need to be careful when we play for long periods
+    of time." '
   leftColumnImage: {fileID: 21300000, guid: e9d68b020c193e342b27062c7a2ce49d, type: 3}
   rightColumnImage: {fileID: 21300000, guid: e9d68b020c193e342b27062c7a2ce49d, type: 3}
-  todaysEmail: Assets/Stories/Emails/Day2Email.txt
+  todaysEmail: Bossy McBoss|Young adult males wanted!|Today our client only wants
+    only wants the profiles of young adult males. Make sure that each profile matches
+    the description the client provides. Press reject on any profiles that don't fit
+    the clients description. They'll pay you for every profile sold to them.
   senderImage: {fileID: 21300000, guid: 29fe9eee782375949bcfb0263d5e93d0, type: 3}
   newspaperCanvas: {fileID: 1716758539}
   newsTitle: {fileID: 1764716405}

@@ -2591,10 +2591,15 @@ MonoBehaviour:
   currPage: 0
   inTutorial: 0
   onCostPage: 0
-  todaysNewspaper: Assets/Stories/Newspapers/Day5News.txt
+  todaysNewspaper: 'Daily Weather|Everythings alright!|SHORT|The sky is green. The
+    grass is blue. Everything''s alright. Don''t panic.||LONG|   '
   leftColumnImage: {fileID: 21300000, guid: d04e2c2ba0e66504398093f1b1adcd2a, type: 3}
   rightColumnImage: {fileID: 21300000, guid: d04e2c2ba0e66504398093f1b1adcd2a, type: 3}
-  todaysEmail: Assets/Stories/Emails/Day5Email.txt
+  todaysEmail: Secretary McSecs|Secret assignment|Hey this is a assignment from a
+    special client. They only want young dabbing female profiles, however they are
+    willing to pay five times the usual amount per profile submitted. I'll be personally
+    monitoring you. Keep this assignment a secret from the higher ups. We wouldn't
+    want them to interfere.
   senderImage: {fileID: 21300000, guid: 29fe9eee782375949bcfb0263d5e93d0, type: 3}
   newspaperCanvas: {fileID: 1716758539}
   newsTitle: {fileID: 1764716405}

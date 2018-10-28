@@ -2599,10 +2599,19 @@ MonoBehaviour:
   currPage: 0
   inTutorial: 0
   onCostPage: 0
-  todaysNewspaper: Assets/Stories/Newspapers/Day7News.txt
+  todaysNewspaper: 'Newspaper No. 9|Dabnappings??|LONG|Alert. Dabnappings have been
+    occurring throughout the country. There have been a series of serial kidnappings
+    of dabbers across the country. Most of those kidnapped are young high school dabbers
+    who had just recently gotten out of dabschool. Police are trying to find out how
+    these kidnappings are happening and how these dabnappers are tracking their victims
+    whereabouts. The police have issued a statement that anyone who fully assists
+    or cooperates with these dabnappers in anyway will be punished.||LONG|  '
   leftColumnImage: {fileID: 21300000, guid: baa7fd6e3964e734f92b18c9d9f65398, type: 3}
   rightColumnImage: {fileID: 21300000, guid: 29fe9eee782375949bcfb0263d5e93d0, type: 3}
-  todaysEmail: Assets/Stories/Emails/Day7Email.txt
+  todaysEmail: Bossy McBoss|Todays Assignment|Our newest client is looking for young
+    highschool profiles but have specifically said that dabbing profiles take priority.
+    They are willing to pay triple the usual amount for any dabbing profiles you sell
+    to them.
   senderImage: {fileID: 21300000, guid: 29fe9eee782375949bcfb0263d5e93d0, type: 3}
   newspaperCanvas: {fileID: 1716758539}
   newsTitle: {fileID: 1764716405}

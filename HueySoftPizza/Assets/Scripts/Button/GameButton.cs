@@ -124,47 +124,87 @@ public class GameButton : MonoBehaviour
     }
     reader.Close();
     //About me, hobby, anime
-    reader = new StreamReader("Assets/Stories/AboutMes/Hobbies/Anime.txt", Encoding.GetEncoding(1252));
+    /*reader = new StreamReader("Assets/Stories/AboutMes/Hobbies/Anime.txt", Encoding.GetEncoding(1252));
     while ((line = reader.ReadLine()) != null)
     {
       hobbyAnime.Add(line);
     }
-    reader.Close();
+    reader.Close();*/
+    hobbyAnime.Add("I love dix. Anime dix.");
+    hobbyAnime.Add("Meatspin is sOOOOO 2000's... Guess I'll go back to watching Boku no Pico.");
+    hobbyAnime.Add("IM A WEABOO PRINCESSSSSSSSSSS and I love anime.");
+    hobbyAnime.Add("I love chicks, coffee, and Crunchyroll.");
+    hobbyAnime.Add("I love Anime. Fuck you.");
+    hobbyAnime.Add("The only things I want to fuck are GUNS and ANIME GIRLS and if you don't like you can hit that unfriend.");
     //About me, hobby, fortnite
-    reader = new StreamReader("Assets/Stories/AboutMes/Hobbies/Fortnite.txt", Encoding.GetEncoding(1252));
+    /*reader = new StreamReader("Assets/Stories/AboutMes/Hobbies/Fortnite.txt", Encoding.GetEncoding(1252));
     while ((line = reader.ReadLine()) != null)
     {
       hobbyFortnite.Add(line);
     }
-    reader.Close();
+    reader.Close();*/
+    hobbyFortnite.Add("I love EPIC VICTORY ROYALLS!!!!");
+    hobbyFortnite.Add("I'm a casual gamer I don't mean to brag but I'm #1 on the NA Fortnite ladder.");
+    hobbyFortnite.Add("Philly local here! Anyone wanna play Fortnite?");
+    hobbyFortnite.Add("I love long walks on the beach. I love carrots with ranch. Sometimes I play Fortnite.");
+    hobbyFortnite.Add("Hey! I love me some Chicken Wings & Fortnite.");
     //About me, hobby, fortnite
-    reader = new StreamReader("Assets/Stories/AboutMes/Hobbies/Dabbing.txt", Encoding.GetEncoding(1252));
+    /*reader = new StreamReader("Assets/Stories/AboutMes/Hobbies/Dabbing.txt", Encoding.GetEncoding(1252));
     while ((line = reader.ReadLine()) != null)
     {
       hobbyDabbing.Add(line);
     }
-    reader.Close();
+    reader.Close();*/
+    hobbyDabbing.Add("*dabs*");
+    hobbyDabbing.Add("EVERYONE DIES. Unless they dab.");
+    hobbyDabbing.Add("Haha just kicked a pregnant taco lady and dabbed on her body.");
+    hobbyDabbing.Add("Dabbing is the definition of culture.");
+    hobbyDabbing.Add("One time I dabbed so hard I dropped my phone.");
+    hobbyDabbing.Add("Are you a queen? 'Cause I'm the Duke of Dabtown.");
     //About me, education, high school
-    reader = new StreamReader("Assets/Stories/AboutMes/Education/HighSchool.txt", Encoding.GetEncoding(1252));
+    /*reader = new StreamReader("Assets/Stories/AboutMes/Education/HighSchool.txt", Encoding.GetEncoding(1252));
     while ((line = reader.ReadLine()) != null)
     {
       edHighSchool.Add(line);
     }
-    reader.Close();
+    reader.Close();*/
+    edHighSchool.Add("I'm a kinda shy high school student... (notice me, girl who sits in front of me in MAT230...)");
+    edHighSchool.Add("Guess I'm still a lonely high schooler...");
+    edHighSchool.Add("Math is really fun! I can't wait to graduate from high school and study at a university.");
+    edHighSchool.Add("Man, high school cafe food really sucks...");
+    edHighSchool.Add("Cant wait to get out of this dumb high school class");
+    edHighSchool.Add("My teachers actually kinda hot, tbh… Too bad I'm just a high schooler.");
+    edHighSchool.Add("Job interviews freak me out... Good thing I'm still in high school.");
     //About me, education, college
-    reader = new StreamReader("Assets/Stories/AboutMes/Education/College.txt", Encoding.GetEncoding(1252));
+    /*reader = new StreamReader("Assets/Stories/AboutMes/Education/College.txt", Encoding.GetEncoding(1252));
     while ((line = reader.ReadLine()) != null)
     {
       edCollege.Add(line);
     }
-    reader.Close();
+    reader.Close();*/
+    edCollege.Add("Just took a really big dump… AND IT WAS AMAZING!!!! Hope I didnt stink up the college dorms...");
+    edCollege.Add("There's so many classes to take and not enough time... College is weird.");
+    edCollege.Add("So stressed out rite now… College sux.");
     //Recent activities
-    reader = new StreamReader("Assets/Stories/RecentActivities.txt", Encoding.Default);
+    /*reader = new StreamReader("Assets/Stories/RecentActivities.txt", Encoding.Default);
     while ((line = reader.ReadLine()) != null)
     {
       recentActivities.Add(line);
     }
-    reader.Close();
+    reader.Close();*/
+    recentActivities.Add("P1 and P2 became friends.");
+    recentActivities.Add("P1 has unfriended P2.");
+    recentActivities.Add("P1 replied to P2's post.");
+    recentActivities.Add("P1 has subscribed to updates from P2's profile.");
+    recentActivities.Add("P1 has liked P2's post.");
+    recentActivities.Add("P1 changed PNA1 'About Me'.");
+    recentActivities.Add("P1 has a new address. ");
+    recentActivities.Add("Today is P1's birthday!");
+    recentActivities.Add("P1 is going to Doujin-con.");
+    recentActivities.Add("P1 reposted P2's post. ");
+    recentActivities.Add("P1 shared a link.");
+    recentActivities.Add("P1 updated a playlist on J-tunes.");
+    recentActivities.Add("P1 has added P2 as PNA1 current employer.");
     //load profil pictures
     LoadProfilePictures();
     /*if (playerInfo == null)
