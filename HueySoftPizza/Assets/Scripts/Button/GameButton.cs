@@ -155,20 +155,23 @@ public class GameButton : MonoBehaviour
     reader.Close();
     //load profil pictures
     LoadProfilePictures();
-    if (playerInfo == null)
+    /*if (playerInfo == null)
     {
       playerInfo = FindObjectOfType<PlayerInfo>();
     }
     TotalCredits.text = playerInfo.currMoney.ToString();
-    ShowNewPerson();
+    ShowNewPerson();*/
   }
 
   // Update is called once per frame
   void Update()
   {
+    //I hacked this here instead because it will probably happen after we delete the duplicate playerinfo
     if (playerInfo == null)
     {
       playerInfo = FindObjectOfType<PlayerInfo>();
+      TotalCredits.text = playerInfo.currMoney.ToString();
+      ShowNewPerson();
     }
   }
 
