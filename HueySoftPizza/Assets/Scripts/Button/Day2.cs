@@ -18,6 +18,7 @@ public class Day2 : MonoBehaviour
   public Text houseCostField;
   public Text TaxCostField;
   public Text TotalField;
+  public GameButton gameButton;
 
   [SerializeField]
   private int currPage;
@@ -344,7 +345,35 @@ public class Day2 : MonoBehaviour
         break;
       case EndStates.None:
         //TODO: Change this
-        StartCoroutine(transitionManager.TransitionScene("MainMenu"));
+        playerInfo.ResetPlayer();
+        switch (gameButton.CurrDay)
+        {
+          case 1:
+            StartCoroutine(transitionManager.TransitionScene("Day2"));
+            break;
+          case 2:
+            StartCoroutine(transitionManager.TransitionScene("Day3"));
+            break;
+          case 3:
+            StartCoroutine(transitionManager.TransitionScene("Day4"));
+            break;
+          case 4:
+            StartCoroutine(transitionManager.TransitionScene("Day5"));
+            break;
+          case 5:
+            StartCoroutine(transitionManager.TransitionScene("Day6"));
+            break;
+          case 6:
+            StartCoroutine(transitionManager.TransitionScene("Day7"));
+            break;
+          case 7:
+            StartCoroutine(transitionManager.TransitionScene("MainMenu"));
+            break;
+          default:
+            StartCoroutine(transitionManager.TransitionScene("MainMenu"));
+            break;
+        }
+        
         break;
     }
   }
