@@ -276,16 +276,13 @@ public class Day2 : MonoBehaviour
   {
     if (inTutorial)
     {
+      Debug.Log("here");
       TutorialPages[currPage].gameObject.SetActive(false);
       currPage++;
       if (currPage >= TutorialPages.Count)
       {
         inTutorial = false;
         TutorialCanvas.gameObject.SetActive(false);
-      }
-      else
-      {
-        TutorialPages[currPage].gameObject.SetActive(true);
       }
     }
   }

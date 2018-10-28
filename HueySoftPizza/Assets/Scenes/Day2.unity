@@ -381,7 +381,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1521928007}
+        - m_Target: {fileID: 1971730551}
           m_MethodName: AdvanceTutorial
           m_Mode: 1
           m_Arguments:
@@ -660,7 +660,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1521928007}
+        - m_Target: {fileID: 1971730551}
           m_MethodName: AdvanceTutorial
           m_Mode: 1
           m_Arguments:
@@ -1715,7 +1715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.003921569}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2093,7 +2093,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1521928007}
+        - m_Target: {fileID: 1971730551}
           m_MethodName: AdvanceTutorial
           m_Mode: 1
           m_Arguments:
@@ -2198,7 +2198,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1521928007}
+        - m_Target: {fileID: 1971730551}
           m_MethodName: AdvanceTutorial
           m_Mode: 1
           m_Arguments:
