@@ -604,7 +604,7 @@ public class GameButton : MonoBehaviour
           profile.Add(1);
           generatedProfiles.Add(profile);
         }
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 5; i++)
         {
           List<int> profile = new List<int>();
           profile.Add(Random.Range(0, System.Enum.GetNames(typeof(Age)).Length));
