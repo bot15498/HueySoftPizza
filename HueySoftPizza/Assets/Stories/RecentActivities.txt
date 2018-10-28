@@ -2,7 +2,7 @@ P1 and P2 became friends.
 P1 has unfriended P2.
 P1 has subscribed to updates from P2¡¯s profile.
 P1 replied to P2¡¯s post.
-P1 has liked P2¡¯s post 
+P1 has liked P2¡¯s post.
 P1 changed PNA1 'About Me'.
 P1 has a new address. 
 Today is P1¡¯s birthday!
