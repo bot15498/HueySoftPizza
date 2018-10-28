@@ -206,18 +206,13 @@ public class GameButton : MonoBehaviour
 
     public void ShowNewPerson()
     {
-<<<<<<< HEAD:HueySoftPizza/Assets/Scripts/Button/Button.cs
+        //update profiles remaining just in case
+        RemainingProfilesField.text = (MaxProfileForDay - playerInfo.currProfileSeen).ToString();
+
         //Autogenerate name, sex, age, hobby, education, and recent activities.
         currFirstName = firstNames[Random.Range(0, firstNames.Count)];
         currLastName = lastNames[Random.Range(0, lastNames.Count)];
         currName = currFirstName + " " + currLastName;
-=======
-        //update profiles remaining just in case
-        RemainingProfilesField.text = (MaxProfileForDay - playerInfo.currProfileSeen).ToString();
-
-        //Autogenerate name, sex, and age.
-        currName = firstNames[Random.Range(0, firstNames.Count)] + " " + lastNames[Random.Range(0, lastNames.Count - 1)];
->>>>>>> origin/day1:HueySoftPizza/Assets/Scripts/Button/GameButton.cs
         currAge = (Age)Random.Range(0, System.Enum.GetNames(typeof(Age)).Length - 1);
         currSex = (Sex)Random.Range(0, 3);
         currHobby = (Hobbies)Random.Range(0, System.Enum.GetNames(typeof(Hobbies)).Length );
