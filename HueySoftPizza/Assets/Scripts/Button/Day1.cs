@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class Day1 : MonoBehaviour
 {
@@ -29,6 +30,49 @@ public class Day1 : MonoBehaviour
   private bool onCostPage;
   private PlayerInfo playerInfo;
   private GameOverChecker gameOverCheck;
+
+  public string todaysNewspaper; // path to txt file
+  private string newsTitleText;
+  private string leftColumnTitle;
+  private string leftColumnBodyText;
+  private bool leftColumnLong = true;
+  public Sprite leftColumnImage;
+  private string rightColumnTitle;
+  private string rightColumnBodyText;
+  private bool rightColumnLong = false;
+  public Sprite rightColumnImage;
+
+  public string todaysEmail; // path to txt file
+  public Sprite senderImage;
+  private string senderName;
+  private string subject;
+  private string emailBody;
+
+  public GameObject newspaperCanvas;
+  public GameObject newsTitle;
+  public GameObject leftTitle;
+  public GameObject leftLongBody;
+  public GameObject leftShortBody;
+  public GameObject leftImageObj; // only shown if left column length is set to short
+  public GameObject rightTitle;
+  public GameObject rightLongBody;
+  public GameObject rightShortBody;
+  public GameObject rightImageObj; // only shown if right column length is set to short
+
+  public GameObject emailCanvas;
+  public GameObject emailImageObj;
+  public GameObject emailSenderText;
+  public GameObject emailSubjectText;
+  public GameObject emailBodyText;
+
+  // Daily Startup Routine: Newspaper, then game
+  public enum GameState
+  {
+    Newspaper,
+    Email,
+    Game
+  }
+  public GameState currentGameState = GameState.Game;
 
   // Use this for initialization
   void Start()
@@ -67,6 +111,114 @@ public class Day1 : MonoBehaviour
     {
       gameOverCheck = FindObjectOfType<GameOverChecker>();
     }
+
+    // Reset all newspaper objects
+    leftLongBody.SetActive(false);
+    leftShortBody.SetActive(false);
+    leftImageObj.SetActive(false);
+    rightLongBody.SetActive(false);
+    rightShortBody.SetActive(false);
+    rightImageObj.SetActive(false);
+    newspaperCanvas.SetActive(false);
+
+    // Reset all email objects
+    emailCanvas.SetActive(false);
+
+    // Start with newspaper if there is one
+    if (todaysNewspaper != "null")
+    {
+      currentGameState = GameState.Newspaper;
+      ParseNewspaperFile();
+      UpdateNewspaperObjects();
+      // Show newspaper
+      newspaperCanvas.SetActive(true);
+    }
+
+    // Prepare email
+    if (todaysEmail != "null")
+    {
+      ParseEmailFile();
+      UpdateEmailObjects();
+    }
+  }
+
+  void ParseNewspaperFile()
+  {
+    StreamReader reader = new StreamReader(todaysNewspaper);
+    // Set title
+    newsTitleText = reader.ReadLine();
+    // Set left column title
+    leftColumnTitle = reader.ReadLine();
+    // Check if left column is long or short
+    string tempLen = reader.ReadLine().ToLower();
+    if (tempLen == "long")
+      leftColumnLong = true;
+    else
+      leftColumnLong = false;
+    // Set left column text
+    leftColumnBodyText = reader.ReadLine();
+    // Set right column title
+    rightColumnTitle = reader.ReadLine();
+    // Check if right column is long or short
+    tempLen = reader.ReadLine().ToLower();
+    if (tempLen == "long")
+      rightColumnLong = true;
+    else
+      rightColumnLong = false;
+    // Set right column text
+    rightColumnBodyText = reader.ReadLine();
+    // Cleanup
+    reader.Close();
+  }
+
+  void UpdateNewspaperObjects()
+  {
+    // Set newspaper fields
+    newsTitle.GetComponent<Text>().text = newsTitleText;
+    leftTitle.GetComponent<Text>().text = leftColumnTitle;
+    leftLongBody.GetComponent<Text>().text = leftColumnBodyText;
+    leftShortBody.GetComponent<Text>().text = leftColumnBodyText;
+    rightTitle.GetComponent<Text>().text = rightColumnTitle;
+    rightLongBody.GetComponent<Text>().text = rightColumnBodyText;
+    rightLongBody.GetComponent<Text>().text = rightColumnBodyText;
+    leftImageObj.GetComponent<Image>().sprite = leftColumnImage;
+    rightImageObj.GetComponent<Image>().sprite = rightColumnImage;
+
+    // Reveal appropriate text objects
+    if (leftColumnLong)
+      leftLongBody.SetActive(true);
+    else
+    {
+      leftShortBody.SetActive(true);
+      leftImageObj.SetActive(true);
+    }
+    if (rightColumnLong)
+      rightLongBody.SetActive(true);
+    else
+    {
+      rightShortBody.SetActive(true);
+      rightImageObj.SetActive(true);
+    }
+  }
+
+  void ParseEmailFile()
+  {
+    StreamReader reader = new StreamReader(todaysEmail);
+    senderName = reader.ReadLine();
+    subject = reader.ReadLine();
+    emailBody = reader.ReadLine();
+    // replace ~ with newline
+    emailBody = emailBody.Replace("~", "\n");
+    // cleanup
+    reader.Close();
+  }
+
+  void UpdateEmailObjects()
+  {
+    emailImageObj.GetComponent<Image>().sprite = senderImage;
+    emailSenderText.GetComponent<Text>().text = senderName;
+    emailSubjectText.GetComponent<Text>().text = subject;
+    emailBodyText.GetComponent<Text>().text = emailBody;
   }
 
   // Update is called once per frame
@@ -100,6 +252,36 @@ public class Day1 : MonoBehaviour
       foodCostField.text = playerInfo.foodCostPerDay.ToString();
       houseCostField.text = playerInfo.houseCostPerDay.ToString();
       TaxCostField.text = playerInfo.taxCostPerDay.ToString();
+    }
+
+    // Check for mouse click to advance newspaper / email
+    if (Input.GetMouseButtonDown(0))
+    {
+      if (currentGameState == GameState.Newspaper)
+      {
+        // Hide newspaper
+        newspaperCanvas.SetActive(false);
+
+        // Advance to email if there is one
+        if (todaysEmail != "null")
+        {
+          currentGameState = GameState.Email;
+          emailCanvas.SetActive(true);
+        }
+
+        // Otherwise, proceed to in-game state
+        else
+          currentGameState = GameState.Game;
+      }
+
+      else if (currentGameState == GameState.Email)
+      {
+        // Hide email
+        emailCanvas.SetActive(false);
+
+        // Proceed to in-game state
+        currentGameState = GameState.Game;
+      }
     }
   }
 

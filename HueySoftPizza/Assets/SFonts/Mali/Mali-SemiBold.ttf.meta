@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: f158584dece6cab44bae0a5bcfcecd12
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Mali SemiBold
+  fontNames:
+  - Mali SemiBold
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 0a707f8a69358cf4b9bdd351687ce684, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -159,6 +159,7 @@ public class GameButton : MonoBehaviour
     {
       playerInfo = FindObjectOfType<PlayerInfo>();
     }
+    TotalCredits.text = playerInfo.currMoney.ToString();
     ShowNewPerson();
   }
 
@@ -177,6 +178,7 @@ public class GameButton : MonoBehaviour
     playerInfo.IncreaseMoney();
     if (playerInfo.currProfileSeen >= MaxProfileForDay)
     {
+      TotalCredits.text = playerInfo.currMoney.ToString();
       EndSelling();
     }
     else
