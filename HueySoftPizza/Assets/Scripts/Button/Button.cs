@@ -33,7 +33,14 @@ public class Button : MonoBehaviour
     {
         Male,
         Female,
-        Catgirl,
+        ElonMuskCatgirl,
+    }
+    
+    public enum PronounsA
+    {
+        his,
+        her,
+        zer
     }
 
     public Image Portrait;
@@ -47,6 +54,10 @@ public class Button : MonoBehaviour
     [SerializeField]
     private string currName;
     [SerializeField]
+    private string currFirstName;
+    [SerializeField]
+    private string currLastName;
+    [SerializeField]
     private Sex currSex;
     [SerializeField]
     private Age currAge;
@@ -54,6 +65,10 @@ public class Button : MonoBehaviour
     private Hobbies currHobby;
     [SerializeField]
     private Education currEd;
+    [SerializeField]
+    private string currActivities;
+    [SerializeField]
+    private PronounsA currPnA;
 
     //private int currProfileSeen = 0;
     private PlayerInfo playerInfo;
@@ -65,7 +80,7 @@ public class Button : MonoBehaviour
     private List<string> hobbyDabbing = new List<string>();
     private List<string> edHighSchool = new List<string>();
     private List<string> edCollege = new List<string>();
-
+    private List<string> recentActivities = new List<string>();
 
     // Use this for initialization
     void Start()
@@ -120,6 +135,13 @@ public class Button : MonoBehaviour
             edCollege.Add(line);
         }
         reader.Close();
+        //Recent activities
+        reader = new StreamReader("Assets/Stories/RecentActivities.txt", Encoding.Default);
+        while ((line = reader.ReadLine()) != null)
+        {
+            recentActivities.Add(line);
+        }
+
         if(playerInfo == null)
         {
             playerInfo = FindObjectOfType<PlayerInfo>();
@@ -156,12 +178,34 @@ public class Button : MonoBehaviour
 
     public void ShowNewPerson()
     {
-        //Autogenerate name, sex, and age.
-        currName = firstNames[Random.Range(0, firstNames.Count)] + " " + lastNames[Random.Range(0, lastNames.Count - 1)];
+        //Autogenerate name, sex, age, hobby, education, and recent activities.
+        currFirstName = firstNames[Random.Range(0, firstNames.Count)];
+        currLastName = lastNames[Random.Range(0, lastNames.Count)];
+        currName = currFirstName + " " + currLastName;
         currAge = (Age)Random.Range(0, System.Enum.GetNames(typeof(Age)).Length - 1);
-        currSex = (Sex)Random.Range(0, 2);
+        currSex = (Sex)Random.Range(0, 3);
         currHobby = (Hobbies)Random.Range(0, System.Enum.GetNames(typeof(Hobbies)).Length );
         currEd = (Education)Random.Range(0, System.Enum.GetNames(typeof(Education)).Length);
+        currActivities = recentActivities[Random.Range(0, recentActivities.Count)];
+        currPnA = (PronounsA)(currSex);
+
+        // Resize age/sex text if too big
+        if (currSex == Sex.ElonMuskCatgirl)
+            SexAgeField.fontSize = 26;
+        else
+            SexAgeField.fontSize = 34;
+
+        // Generate a 2nd name to use in filling recent activities. If it's equal to first name, re-roll.
+        string name2;
+        do
+          name2 = firstNames[Random.Range(0, firstNames.Count)];
+        while (name2 == currFirstName);
+        // Fill in Recent Activities text fields
+        string newAct = currActivities;
+        newAct = newAct.Replace("P1", currFirstName);
+        newAct = newAct.Replace("P2", name2);
+        newAct = newAct.Replace("PNA1", currPnA.ToString());
+        currActivities = newAct;
 
         //Update text on screen
         NameField.text = currName;
@@ -187,5 +231,6 @@ public class Button : MonoBehaviour
                 : currHobby == Hobbies.Fortnite ? hobbyFortnite[Random.Range(0, hobbyFortnite.Count)]
                 : hobbyDabbing[Random.Range(0, hobbyDabbing.Count)];
         }
+        BioField.text = currActivities;
     }
 }

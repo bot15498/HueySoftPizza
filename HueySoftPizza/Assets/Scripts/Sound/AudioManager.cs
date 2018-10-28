@@ -57,11 +57,11 @@ public class AudioManager : MonoBehaviour
 
   public void PlayLevelMusic()
   {
-    Play(levelMusic, -21f, true);
+    Play(levelMusic, -16f, true);
   }
 
   public void PlayMenuMusic()
   {
-    Play(mainMenuMusic, -21f, true);
+    Play(mainMenuMusic, -16f, true);
   }
 }
