@@ -112,7 +112,7 @@ public class GameButton : MonoBehaviour
   {
     string line;
     //first names
-    StreamReader reader = new StreamReader("Assets/Stories/LastNames.txt", Encoding.GetEncoding(1252));
+    /*StreamReader reader = new StreamReader("Assets/Stories/LastNames.txt", Encoding.GetEncoding(1252));
     StreamWriter writer = new StreamWriter("Assets/Stories/asdf.txt", true);
 
     while ((line = reader.ReadLine()) != null)
@@ -120,7 +120,7 @@ public class GameButton : MonoBehaviour
       writer.WriteLine("lirstNames.Add(\"" + line + "\");");
     }
     reader.Close();
-    writer.Close();
+    writer.Close();*/
     doneLoading = false;
     StartCoroutine(load());
 

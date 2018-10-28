@@ -312,6 +312,10 @@ public class Day2 : MonoBehaviour
   public void ContinueToNextDay()
   {
     EndStates endState = gameOverCheck.CheckEndOfDay();
+    if(playerInfo.dataBreachCount >=2)
+    {
+      endState = EndStates.DataBreach;
+    }
     switch(endState)
     {
       case EndStates.NoFood:
