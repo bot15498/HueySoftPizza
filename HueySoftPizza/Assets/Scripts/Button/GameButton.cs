@@ -226,7 +226,7 @@ public class GameButton : MonoBehaviour
         {
           playerInfo.IncreaseIncorrect();
         }
-        else if(currAge != Age.Adult || currAge != Age.Young)
+        else if(currAge != Age.Young)
         {
           playerInfo.IncreaseIncorrect();
         }
