@@ -5,53 +5,53 @@ using UnityEngine.UI;
 
 public class CostPage : MonoBehaviour
 {
-    //This is a simple class that disables buttons when clicked.
-    //Don't put day specific code here.
-    public Button FoodButton;
-    public Button HouseButton;
-    public Button TaxButton;
-    private PlayerInfo info;
+  //This is a simple class that disables buttons when clicked.
+  //Don't put day specific code here.
+  public Button FoodButton;
+  public Button HouseButton;
+  public Button TaxButton;
+  private PlayerInfo info;
 
-    public void Start()
+  public void Start()
+  {
+    if (info == null)
     {
-        if(info == null)
-        {
-            info = FindObjectOfType<PlayerInfo>();
-        }
+      info = FindObjectOfType<PlayerInfo>();
     }
+  }
 
-    public void Update()
+  public void Update()
+  {
+    if (info == null)
     {
-        if (info == null)
-        {
-            info = FindObjectOfType<PlayerInfo>();
-        }
+      info = FindObjectOfType<PlayerInfo>();
     }
+  }
 
-    public void PayFoodCost()
+  public void PayFoodCost()
+  {
+    if (info.PayFood())
     {
-        if(info.PayFood())
-        {
-            FoodButton.GetComponentInChildren<Text>().text = "Paid!";
-            FoodButton.interactable = false;
-        }
+      FoodButton.GetComponentInChildren<Text>().text = "Paid!";
+      FoodButton.interactable = false;
     }
+  }
 
-    public void PayHouseCost()
+  public void PayHouseCost()
+  {
+    if (info.PayHouse())
     {
-        if(info.PayHouse())
-        {
-            HouseButton.GetComponentInChildren<Text>().text = "Paid!";
-            HouseButton.interactable = false;
-        }
+      HouseButton.GetComponentInChildren<Text>().text = "Paid!";
+      HouseButton.interactable = false;
     }
+  }
 
-    public void PayTaxCost()
+  public void PayTaxCost()
+  {
+    if (info.PayTax())
     {
-        if(info.PayTax())
-        {
-            TaxButton.GetComponentInChildren<Text>().text = "Paid!";
-            TaxButton.interactable = false;
-        }
+      TaxButton.GetComponentInChildren<Text>().text = "Paid!";
+      TaxButton.interactable = false;
     }
+  }
 }
