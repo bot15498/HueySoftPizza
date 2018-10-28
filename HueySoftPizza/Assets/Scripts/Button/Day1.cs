@@ -152,22 +152,40 @@ public class Day1 : MonoBehaviour
     switch(endState)
     {
       case EndStates.NoFood:
+        playerInfo.currState = EndStates.NoFood;
+        StartCoroutine(transitionManager.TransitionScene("BadEnd"));
         break;
       case EndStates.NoHouse:
+        playerInfo.currState = EndStates.NoHouse;
+        StartCoroutine(transitionManager.TransitionScene("BadEnd"));
         break;
       case EndStates.NoTax:
+        playerInfo.currState = EndStates.NoTax;
+        StartCoroutine(transitionManager.TransitionScene("BadEnd"));
         break;
       case EndStates.NoMoney:
+        playerInfo.currState = EndStates.NoMoney;
+        StartCoroutine(transitionManager.TransitionScene("BadEnd"));
         break;
       case EndStates.TooManyStrikes:
+        playerInfo.currState = EndStates.TooManyStrikes;
+        StartCoroutine(transitionManager.TransitionScene("BadEnd"));
         break;
       case EndStates.KidDies:
+        playerInfo.currState = EndStates.KidDies;
+        StartCoroutine(transitionManager.TransitionScene("BadEnd"));
         break;
       case EndStates.DataBreach:
+        playerInfo.currState = EndStates.DataBreach;
+        StartCoroutine(transitionManager.TransitionScene("BadEnd"));
         break;
       case EndStates.Conspiring:
+        playerInfo.currState = EndStates.Conspiring;
+        StartCoroutine(transitionManager.TransitionScene("BadEnd"));
         break;
       case EndStates.FalseInfo:
+        playerInfo.currState = EndStates.FalseInfo;
+        StartCoroutine(transitionManager.TransitionScene("BadEnd"));
         break;
       case EndStates.None:
         //TODO: Change this

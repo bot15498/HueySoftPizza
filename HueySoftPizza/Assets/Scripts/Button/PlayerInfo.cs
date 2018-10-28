@@ -16,6 +16,7 @@ public class PlayerInfo : MonoBehaviour
   public bool paidTax;
   public bool paidHouse;
   public bool paidMedicine;
+  public EndStates currState;
 
   private static PlayerInfo playerInfo;
 
@@ -110,5 +111,6 @@ public class PlayerInfo : MonoBehaviour
     paidHouse = false;
     paidMedicine = false;
     currMoney = 10;
+    currState = EndStates.None;
   }
 }
