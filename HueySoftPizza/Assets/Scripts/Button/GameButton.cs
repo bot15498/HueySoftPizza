@@ -289,24 +289,27 @@ public class GameButton : MonoBehaviour
     {
       playerInfo.IncreaseIncorrect();
     }
-    switch (playerInfo.incorrectCount)
+    if (CurrDay == 6)
     {
-      case 1:
-        ShowRecordingWarning();
-        break;
-      case 2:
-        // all profits are taken away and no more profits for the day
-        playerInfo.recordedViolation = true;
-        playerInfo.currProfitForDay = 0;
-        ShowRecordingWarning2();
-        break;
-      case 3:
-        // game over
-        playerInfo.currState = EndStates.TooManyStrikes;
-        StartCoroutine(transitionManager.TransitionScene("BadEnd"));
-        break;
-      default:
-        break;
+      switch (playerInfo.incorrectCount)
+      {
+        case 1:
+          ShowRecordingWarning();
+          break;
+        case 2:
+          // all profits are taken away and no more profits for the day
+          playerInfo.recordedViolation = true;
+          playerInfo.currProfitForDay = 0;
+          ShowRecordingWarning2();
+          break;
+        case 3:
+          // game over
+          playerInfo.currState = EndStates.TooManyStrikes;
+          StartCoroutine(transitionManager.TransitionScene("BadEnd"));
+          break;
+        default:
+          break;
+      }
     }
   }
 
@@ -423,7 +426,7 @@ public class GameButton : MonoBehaviour
     currSex = (Sex)generatedProfiles[currProfile][1];
     currHobby = (Hobbies)generatedProfiles[currProfile][2];
     currEd = (Education)generatedProfiles[currProfile][3];
-    if(CurrDay == 6 && generatedProfiles[currProfile].Count > 4)
+    if (CurrDay == 6 && generatedProfiles[currProfile].Count > 4)
     {
       currFirstName = "Huey";
       currLastName = "Fields";
