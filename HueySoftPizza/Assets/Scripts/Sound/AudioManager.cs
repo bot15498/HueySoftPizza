@@ -4,12 +4,15 @@ using UnityEngine.SceneManagement; //SceneManager
 public class AudioManager : MonoBehaviour
 {
   public AudioSource audioSource;
+  public AudioSource musicSource;
   public AudioClip buttonHoverSFX;
   public AudioClip sellSFX;
   public AudioClip passSFX;
   public AudioClip levelMusic;
   public AudioClip mainMenuMusic;
   public AudioClip clickSFX;
+  public AudioClip scarySFX1;
+  public AudioClip scarySFX2;
 
   // Use this for initialization
   void Start()
@@ -74,5 +77,21 @@ public class AudioManager : MonoBehaviour
   public void PlayClickSFX()
   {
     Play(clickSFX, -3f);
+  }
+
+  public void PlayScarySFX1()
+  {
+    Play(scarySFX1, -6f);
+  }
+
+  public void PlayScarySFX2()
+  {
+    Play(scarySFX2, 0f);
+    StopMusic();
+  }
+
+  public void StopMusic()
+  {
+    musicSource.volume = 0f;
   }
 }
