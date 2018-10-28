@@ -347,6 +347,10 @@ public class Day2 : MonoBehaviour
         playerInfo.currState = EndStates.FalseInfo;
         StartCoroutine(transitionManager.TransitionScene("BadEnd"));
         break;
+      case EndStates.Dabbnapping:
+        playerInfo.currState = EndStates.Dabbnapping;
+        StartCoroutine(transitionManager.TransitionScene("BadEnd"));
+        break;
       case EndStates.None:
         //TODO: Change this
         playerInfo.ResetPlayer();
