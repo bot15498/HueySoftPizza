@@ -186,6 +186,7 @@ public class GameButton : MonoBehaviour
   {
     playerInfo.currProfileSeen++;
     playerInfo.IncreaseMoney();
+    // 5 credits for selling on day 5
     if (CurrDay == 5)
     {
       playerInfo.IncreaseMoney();
@@ -193,6 +194,13 @@ public class GameButton : MonoBehaviour
       playerInfo.IncreaseMoney();
       playerInfo.IncreaseMoney();
     }
+    // 3 credits for selling dabbers on day 7
+    if (CurrDay == 7 && currHobby == Hobbies.Dabbing)
+    {
+      playerInfo.IncreaseMoney();
+      playerInfo.IncreaseMoney();
+    }
+
     if (playerInfo.currProfileSeen >= MaxProfileForDay)
     {
       TotalCredits.text = (playerInfo.currMoney + playerInfo.currProfitForDay).ToString();
@@ -314,6 +322,15 @@ public class GameButton : MonoBehaviour
           {
             audioManager.PlayScarySFX2();
             StartCoroutine(transitionManager.ScaryFade("MainMenu"));
+          }
+        }
+        break;
+      case 7:
+        if (currHobby != Hobbies.Dabbing)
+        {
+          if (currAge != Age.Young || currEd != Education.HighSchool)
+          {
+            playerInfo.IncreaseIncorrect();
           }
         }
         break;
