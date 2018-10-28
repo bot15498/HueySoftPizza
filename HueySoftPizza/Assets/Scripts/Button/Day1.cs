@@ -325,6 +325,8 @@ public class Day1 : MonoBehaviour
   {
     MainGameCanvas.GetComponent<CanvasGroup>().interactable = false;
     playerInfo.currProfileSeen = 0;
+    playerInfo.currMoney += playerInfo.currProfitForDay;
+    playerInfo.currProfitForDay = 0;
     StartCoroutine(LoadExpensePage());
   }
 

@@ -170,7 +170,7 @@ public class GameButton : MonoBehaviour
     if (playerInfo == null)
     {
       playerInfo = FindObjectOfType<PlayerInfo>();
-      TotalCredits.text = playerInfo.currMoney.ToString();
+      TotalCredits.text = (playerInfo.currMoney + playerInfo.currProfitForDay).ToString();
       ShowNewPerson();
     }
   }
@@ -181,11 +181,12 @@ public class GameButton : MonoBehaviour
     playerInfo.IncreaseMoney();
     if (playerInfo.currProfileSeen >= MaxProfileForDay)
     {
-      TotalCredits.text = playerInfo.currMoney.ToString();
+      TotalCredits.text = (playerInfo.currMoney + playerInfo.currProfitForDay).ToString();
       EndSelling();
     }
     else
     {
+      CheckDaySpecificConstraints();
       ShowNewPerson();
     }
   }
@@ -216,11 +217,28 @@ public class GameButton : MonoBehaviour
     }
   }
 
+  public void CheckDaySpecificConstraints()
+  {
+    switch(CurrDay)
+    {
+      case 2:
+        if(currSex != Sex.Male)
+        {
+          playerInfo.IncreaseIncorrect();
+        }
+        else if(currAge != Age.Adult || currAge != Age.Young)
+        {
+          playerInfo.IncreaseIncorrect();
+        }
+        break;
+    }
+  }
+
   public void ShowNewPerson()
   {
     //update profiles remaining just in case
     RemainingProfilesField.text = (MaxProfileForDay - playerInfo.currProfileSeen).ToString();
-    TotalCredits.text = playerInfo.currMoney.ToString();
+    TotalCredits.text = (playerInfo.currMoney + playerInfo.currProfitForDay).ToString();
 
     //Autogenerate name, sex, age, hobby, education, and recent activities.
     currFirstName = firstNames[Random.Range(0, firstNames.Count)];

@@ -1284,9 +1284,10 @@ MonoBehaviour:
   RemainingProfilesField: {fileID: 114894622196278040}
   TotalCredits: {fileID: 114184021321442432}
   Day1Controller: {fileID: 0}
-  MaxProfileForDay: 4
+  Day2Controller: {fileID: 0}
+  MaxProfileForDay: 8
   PricePerProfile: 1
-  CurrDay: 1
+  CurrDay: 2
   currName: 
   currFirstName: 
   currLastName: 
@@ -1328,7 +1329,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: -Only Approve Young (16-25) Adult Males.
 --- !u!114 &114894622196278040
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -10,6 +10,7 @@ public class CostPage : MonoBehaviour
   public Button FoodButton;
   public Button HouseButton;
   public Button TaxButton;
+  public Text DataBreachText;
   private PlayerInfo info;
 
   public void Start()
@@ -17,6 +18,14 @@ public class CostPage : MonoBehaviour
     if (info == null)
     {
       info = FindObjectOfType<PlayerInfo>();
+    }
+    if(info.hasDatabreach)
+    {
+      DataBreachText.gameObject.SetActive(true);
+    }
+    else
+    {
+      DataBreachText.gameObject.SetActive(false);
     }
   }
 

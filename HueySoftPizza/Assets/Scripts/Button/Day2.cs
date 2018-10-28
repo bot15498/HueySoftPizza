@@ -291,6 +291,13 @@ public class Day2 : MonoBehaviour
   {
     MainGameCanvas.GetComponent<CanvasGroup>().interactable = false;
     playerInfo.currProfileSeen = 0;
+    if(playerInfo.hasDatabreach)
+    {
+      playerInfo.currProfitForDay = Mathf.FloorToInt(playerInfo.currProfitForDay / 2);
+    }
+    //save money and reset
+    playerInfo.currMoney += playerInfo.currProfitForDay;
+    playerInfo.currProfitForDay = 0;
     StartCoroutine(LoadExpensePage());
   }
 

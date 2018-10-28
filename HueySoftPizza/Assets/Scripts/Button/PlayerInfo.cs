@@ -8,6 +8,7 @@ public class PlayerInfo : MonoBehaviour
   [System.NonSerialized]
   public int currMoney = 10;
   public int currProfileSeen;
+  public int currProfitForDay = 0;
 
   public int taxCostPerDay = 2;
   public int foodCostPerDay = 2;
@@ -17,6 +18,9 @@ public class PlayerInfo : MonoBehaviour
   public bool paidTax;
   public bool paidHouse;
   public bool paidMedicine;
+  public bool hasDatabreach;
+  public int incorrectCount = 0;
+  public int dataBreachCount = 0;
   public EndStates currState;
 
   private static PlayerInfo playerInfo;
@@ -87,7 +91,17 @@ public class PlayerInfo : MonoBehaviour
 
   public void IncreaseMoney()
   {
-    currMoney++;
+    currProfitForDay++;
+  }
+
+  public void IncreaseIncorrect()
+  {
+    incorrectCount++;
+    if(incorrectCount >= 3)
+    {
+      hasDatabreach = true;
+      dataBreachCount++;
+    }
   }
 
   /// <summary>
@@ -100,6 +114,9 @@ public class PlayerInfo : MonoBehaviour
     paidTax = false;
     paidHouse = false;
     paidMedicine = false;
+    hasDatabreach = false;
+    currProfitForDay = 0;
+    incorrectCount = 0;
   }
 
   /// <summary>
@@ -111,6 +128,10 @@ public class PlayerInfo : MonoBehaviour
     paidTax = false;
     paidHouse = false;
     paidMedicine = false;
+    hasDatabreach = false;
+    dataBreachCount = 0;
+    currProfitForDay = 0;
+    incorrectCount = 0;
     currMoney = 10;
     currState = EndStates.None;
   }
