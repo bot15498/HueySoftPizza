@@ -139,31 +139,31 @@ public class Day2 : MonoBehaviour
 
   void ParseNewspaperFile()
   {
-    StreamReader reader = new StreamReader(todaysNewspaper);
+    //StreamReader reader = new StreamReader(todaysNewspaper);
+    string[] data = todaysNewspaper.Split('|');
     // Set title
-    newsTitleText = reader.ReadLine();
+    newsTitleText = data[0];
     // Set left column title
-    leftColumnTitle = reader.ReadLine();
+    leftColumnTitle = data[1];
     // Check if left column is long or short
-    string tempLen = reader.ReadLine().ToLower();
+    string tempLen = data[2].ToLower();
     if (tempLen == "long")
       leftColumnLong = true;
     else
       leftColumnLong = false;
     // Set left column text
-    leftColumnBodyText = reader.ReadLine();
+    leftColumnBodyText = data[3];
     // Set right column title
-    rightColumnTitle = reader.ReadLine();
+    rightColumnTitle = data[4];
     // Check if right column is long or short
-    tempLen = reader.ReadLine().ToLower();
+    tempLen = data[5].ToLower();
     if (tempLen == "long")
       rightColumnLong = true;
     else
       rightColumnLong = false;
     // Set right column text
-    rightColumnBodyText = reader.ReadLine();
+    rightColumnBodyText = data[6];
     // Cleanup
-    reader.Close();
   }
 
   void UpdateNewspaperObjects()
@@ -198,14 +198,14 @@ public class Day2 : MonoBehaviour
 
   void ParseEmailFile()
   {
-    StreamReader reader = new StreamReader(todaysEmail);
-    senderName = reader.ReadLine();
-    subject = reader.ReadLine();
-    emailBody = reader.ReadLine();
+    //StreamReader reader = new StreamReader(todaysEmail);
+    string[] data = todaysEmail.Split('|');
+    senderName = data[0];
+    subject = data[1];
+    emailBody = data[2];
     // replace ~ with newline
     emailBody = emailBody.Replace("~", "\n");
     // cleanup
-    reader.Close();
   }
 
   void UpdateEmailObjects()

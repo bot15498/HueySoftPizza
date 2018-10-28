@@ -2411,10 +2411,22 @@ MonoBehaviour:
   currPage: 0
   inTutorial: 0
   onCostPage: 0
-  todaysNewspaper: Assets/Stories/Newspapers/Day3News.txt
+  todaysNewspaper: Nico-Nico-Nii-wsletter|Electricity On Tetrick Road Suddenly Goes
+    Out Overnight!|LONG|Last night, the power went for the Tetrick neighborhood. We
+    apologize for all food that spoiled throughout the night. The electric company
+    claims that the outage was caused by a surge from one of the residential houses
+    on the street at approximately 1 AM. We are currently awaiting the resident of
+    the suspect house to return home to ask further questions. In the meantime, we
+    advise that all residents check their appliances for any electrical faults caused
+    by the surge. (Food costs are Doubled.)||LONG|
   leftColumnImage: {fileID: 21300000, guid: baa7fd6e3964e734f92b18c9d9f65398, type: 3}
   rightColumnImage: {fileID: 21300000, guid: 29fe9eee782375949bcfb0263d5e93d0, type: 3}
-  todaysEmail: Assets/Stories/Emails/Day3Email.txt
+  todaysEmail: 'Bossy McBoss|New monitoring program|Today''s client wants every profile  we
+    have except those which contain old males who happen to be associated with anime.~~Today
+    we are also testing our new monitoring equipment after some clients complained
+    about unsatisfactory results.  We''ll be watching for any mistakes, and disciplinary
+    action will be taken as necessary. You will only be given one warning. After your
+    one warning for the day you will be subject to pay dock or possibility of expulsion. '
   senderImage: {fileID: 21300000, guid: 29fe9eee782375949bcfb0263d5e93d0, type: 3}
   newspaperCanvas: {fileID: 1716758539}
   newsTitle: {fileID: 1764716405}
