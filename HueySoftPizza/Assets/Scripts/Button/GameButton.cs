@@ -194,7 +194,10 @@ public class GameButton : MonoBehaviour
   public void SellProfile()
   {
     playerInfo.currProfileSeen++;
-    playerInfo.IncreaseMoney();
+    if (CurrDay != 6)
+    {
+      playerInfo.IncreaseMoney();
+    }
     // 5 credits for selling on day 5
     if (CurrDay == 5)
     {
@@ -272,14 +275,38 @@ public class GameButton : MonoBehaviour
 
   public void HueyCheck()
   {
-    if(CurrDay == 6 && currFirstName == "Huey" && currLastName == "Fields")
+    if (CurrDay == 6 && currFirstName == "Huey" && currLastName == "Fields")
     {
       playerInfo.noSellHuey = true;
+      playerInfo.IncreaseIncorrect();
       //payout
-      for(int i=0;i<10;i++)
+      for (int i = 0; i < 10; i++)
       {
         playerInfo.IncreaseMoney();
       }
+    }
+    else if (CurrDay == 6)
+    {
+      playerInfo.IncreaseIncorrect();
+    }
+    switch (playerInfo.incorrectCount)
+    {
+      case 1:
+        ShowRecordingWarning();
+        break;
+      case 2:
+        // all profits are taken away and no more profits for the day
+        playerInfo.recordedViolation = true;
+        playerInfo.currProfitForDay = 0;
+        ShowRecordingWarning2();
+        break;
+      case 3:
+        // game over
+        playerInfo.currState = EndStates.TooManyStrikes;
+        StartCoroutine(transitionManager.TransitionScene("BadEnd"));
+        break;
+      default:
+        break;
     }
   }
 
@@ -319,10 +346,10 @@ public class GameButton : MonoBehaviour
               StartCoroutine(transitionManager.TransitionScene("BadEnd"));
               break;
           }
-          
+
         }
 
-        
+
         break;
       default:
         break;
@@ -396,6 +423,12 @@ public class GameButton : MonoBehaviour
     currSex = (Sex)generatedProfiles[currProfile][1];
     currHobby = (Hobbies)generatedProfiles[currProfile][2];
     currEd = (Education)generatedProfiles[currProfile][3];
+    if(CurrDay == 6 && generatedProfiles[currProfile].Count > 4)
+    {
+      currFirstName = "Huey";
+      currLastName = "Fields";
+      currName = currFirstName + " " + currLastName;
+    }
     currProfile++;
     currActivities = recentActivities[Random.Range(0, recentActivities.Count)];
     currPnA = (PronounsA)(currSex);
@@ -558,6 +591,16 @@ public class GameButton : MonoBehaviour
         }
         break;
       case 6: //6 random
+        for (int i = 0; i < 1; i++)
+        {
+          List<int> profile = new List<int>();
+          profile.Add(Random.Range(0, System.Enum.GetNames(typeof(Age)).Length));
+          profile.Add(Random.Range(0, System.Enum.GetNames(typeof(Sex)).Length));
+          profile.Add(Random.Range(0, System.Enum.GetNames(typeof(Hobbies)).Length));
+          profile.Add(Random.Range(0, System.Enum.GetNames(typeof(Education)).Length));
+          profile.Add(1);
+          generatedProfiles.Add(profile);
+        }
         for (int i = 0; i < 6; i++)
         {
           List<int> profile = new List<int>();

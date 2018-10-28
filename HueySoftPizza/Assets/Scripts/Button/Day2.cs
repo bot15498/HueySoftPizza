@@ -102,7 +102,7 @@ public class Day2 : MonoBehaviour
       playerInfo.taxCostPerDay = taxCostPerDay;
     }
     //look for game over checker
-    if(gameOverCheck == null)
+    if (gameOverCheck == null)
     {
       gameOverCheck = FindObjectOfType<GameOverChecker>();
     }
@@ -219,6 +219,9 @@ public class Day2 : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+    playerInfo.foodCostPerDay = foodCostPerDay;
+    playerInfo.houseCostPerDay = houseCostPerDay;
+    playerInfo.taxCostPerDay = taxCostPerDay;
     if (transitionManager == null)
     {
       transitionManager = FindObjectOfType<LevelTransition>();
