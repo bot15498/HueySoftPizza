@@ -10,6 +10,7 @@ public class LevelTransition : MonoBehaviour
 
   // Fade Parameters
   const float fadeTime = 1.0f;
+  const float fadeTime2 = 5.0f;
   const float minTransparency = 1.0f; // 1.0 = completely visible
   const float maxTransparency = 0.0f; // 0.0 = completely invisible
   const string level1 = "Day1";
@@ -36,6 +37,25 @@ public class LevelTransition : MonoBehaviour
     screenFadeMask.GetComponent<Image>().raycastTarget = true;
     isTransitioning = true;
     FadeScreenOut();
+    while (isTransitioning)
+    {
+      yield return true;
+    }
+    SceneManager.LoadScene(newSceneName);
+  }
+
+  public IEnumerator ScaryFade(string newSceneName)
+  {
+    screenFadeMask.GetComponent<Image>().raycastTarget = true;
+    isTransitioning = true;
+
+    // Reset the alpha of screenFadeMask
+    Color tempColorHolder = screenFadeMask.GetComponent<Image>().color;
+    tempColorHolder.a = 0f;
+    screenFadeMask.GetComponent<Image>().color = tempColorHolder;
+
+    StartCoroutine(FadeOutScary(screenFadeMask));
+
     while (isTransitioning)
     {
       yield return true;
@@ -110,6 +130,44 @@ public class LevelTransition : MonoBehaviour
       isTransitioning = true;
       // Find the percent to interpolate between max transparency and min transparency
       float interpolationValue = (1 - (f / fadeTime));
+
+      // Use a temporary Color object to set the new Color
+      Color tempColorHolder = fadedObject.GetComponent<Image>().color;
+      tempColorHolder.a = Mathf.Lerp(minTransparency, maxTransparency, interpolationValue);
+      fadedObject.GetComponent<Image>().color = tempColorHolder;
+
+      // Advance to next frame
+      yield return null;
+    }
+    isTransitioning = false;
+
+    // Start the game if screen is finished fading out and startGame == true
+    if (action == PostFadeAction.StartGame)
+    {
+      SceneManager.LoadScene(level1);
+      yield break;
+    }
+
+    else if (action == PostFadeAction.QuitGame)
+    {
+      Application.Quit();
+      yield break;
+    }
+
+    else
+    {
+      yield break;
+    }
+  }
+
+  IEnumerator FadeOutScary(GameObject fadedObject, PostFadeAction action = PostFadeAction.Nothing)
+  {
+    // Decrement alpha over time so that it reaches maxTransparency after fadeTime
+    for (float f = 0; f <= fadeTime2; f += Time.deltaTime)
+    {
+      isTransitioning = true;
+      // Find the percent to interpolate between max transparency and min transparency
+      float interpolationValue = (1 - (f / fadeTime2));
 
       // Use a temporary Color object to set the new Color
       Color tempColorHolder = fadedObject.GetComponent<Image>().color;
