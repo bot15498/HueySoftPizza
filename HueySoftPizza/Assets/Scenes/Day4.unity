@@ -2583,7 +2583,7 @@ MonoBehaviour:
   transitionManager: {fileID: 0}
   taxCostPerDay: 2
   foodCostPerDay: 2
-  houseCostPerDay: 1
+  houseCostPerDay: 2
   foodCostField: {fileID: 746538083}
   houseCostField: {fileID: 746538082}
   TaxCostField: {fileID: 395039924}

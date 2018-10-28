@@ -362,7 +362,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -199.41536, y: 56.69001}
+  m_AnchoredPosition: {x: -199.41504, y: 56.690002}
   m_SizeDelta: {x: -398.92932, y: -512.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &191241447
@@ -477,7 +477,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 295, y: -60}
+  m_AnchoredPosition: {x: 288.9, y: -91}
   m_SizeDelta: {x: 406, y: 275.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &490520144
@@ -569,7 +569,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 501.975, y: 56.99996}
+  m_AnchoredPosition: {x: 501.9746, y: 56.99997}
   m_SizeDelta: {x: -1003.85004, y: -511.19992}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &693512818
@@ -1740,7 +1740,7 @@ Prefab:
     - target: {fileID: 114813648759621392, guid: c1b84fffc2cacf9498b183f1cf16c813,
         type: 2}
       propertyPath: m_Text
-      value: -Approve everyone except old males who like Anime
+      value: -Approve everyone except old (50+) males who like Anime
       objectReference: {fileID: 0}
     - target: {fileID: 114794466377043902, guid: c1b84fffc2cacf9498b183f1cf16c813,
         type: 2}
@@ -1767,6 +1767,11 @@ Prefab:
       propertyPath: recordingText3
       value: 
       objectReference: {fileID: 1476752467}
+    - target: {fileID: 114794466377043902, guid: c1b84fffc2cacf9498b183f1cf16c813,
+        type: 2}
+      propertyPath: MaxProfileForDay
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1b84fffc2cacf9498b183f1cf16c813, type: 2}
   m_IsPrefabAsset: 0
@@ -2396,7 +2401,7 @@ MonoBehaviour:
   MainGameCanvas: {fileID: 257968409}
   transitionManager: {fileID: 0}
   taxCostPerDay: 2
-  foodCostPerDay: 2
+  foodCostPerDay: 4
   houseCostPerDay: 2
   foodCostField: {fileID: 746538083}
   houseCostField: {fileID: 746538082}

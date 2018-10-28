@@ -1878,6 +1878,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1b84fffc2cacf9498b183f1cf16c813, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &1779857868 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114794466377043902, guid: c1b84fffc2cacf9498b183f1cf16c813,
+    type: 2}
+  m_PrefabInternal: {fileID: 1779857867}
+  m_Script: {fileID: 11500000, guid: ecce44af7e5481341a5a4385b55b1ee4, type: 3}
 --- !u!1 &1794661365 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1425799151613684, guid: 38db8a5dcf3ff2a48b20b0472370e456,
@@ -2392,6 +2398,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114477248194659724, guid: 8a2a7ff4f98a05245ac0d2f49451bf61,
+        type: 2}
+      propertyPath: houseCostPerDay
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a2a7ff4f98a05245ac0d2f49451bf61, type: 2}
   m_IsPrefabAsset: 0
@@ -2426,6 +2437,7 @@ MonoBehaviour:
   houseCostField: {fileID: 746538082}
   TaxCostField: {fileID: 395039924}
   TotalField: {fileID: 746538084}
+  gameButton: {fileID: 1779857868}
   currPage: 0
   inTutorial: 0
   onCostPage: 0
