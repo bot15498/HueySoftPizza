@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
 {
   public Image bg1;
   public Image bg2;
+  public Text title;
 
   // Use this for initialization
   void Start()
@@ -16,6 +17,7 @@ public class MainMenu : MonoBehaviour
     {
       bg2.gameObject.SetActive(true);
       bg1.gameObject.SetActive(false);
+      title.text = "What I'm \nWorth";
     }
     else
     {
